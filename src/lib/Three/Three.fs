@@ -1827,6 +1827,7 @@ module __core_Object3D =
         abstract lookAt: vector: Vector3 -> unit
         /// Adds object as child of this object.
         abstract add: [<ParamArray>] ``object``: ResizeArray<Object3D> -> Object3D
+        abstract add: obj: Object3D -> Object3D
         /// Removes object as child of this object.
         abstract remove: [<ParamArray>] ``object``: ResizeArray<Object3D> -> Object3D
         /// Adds object as a child of this, while maintaining the object's world transform.
@@ -4656,6 +4657,7 @@ module __math_Color =
 
     /// Represents a color. See also {@link ColorUtils}.
     type [<AllowNullLiteral>] ColorStatic =
+        [<Emit "new $0($1...)">] abstract Create: color: int -> Color
         [<Emit "new $0($1...)">] abstract Create: ?color: U3<Color, string, float> -> Color
         [<Emit "new $0($1...)">] abstract Create: r: float * g: float * b: float -> Color
         /// List of X11 color names.
@@ -5950,6 +5952,7 @@ module __objects_Mesh =
 
     type [<AllowNullLiteral>] MeshStatic =
         [<Emit "new $0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> -> Mesh
+        [<Emit "new $0($1...)">] abstract Create: ?geometry: Geometry * ?material: Material -> Mesh
 
     type [<AllowNullLiteral>] MeshMorphTargetDictionary =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: key: string -> float with get, set
@@ -6234,7 +6237,7 @@ module __renderers_WebGLRenderer =
         /// Sets the clear color, using color for the color and alpha for the opacity.
         abstract setClearColor: color: Color * ?alpha: float -> unit
         abstract setClearColor: color: string * ?alpha: float -> unit
-        abstract setClearColor: color: float * ?alpha: float -> unit
+        abstract setClearColor: color: int * ?alpha: float -> unit
         /// Returns a float with the current clear alpha. Ranges from 0 to 1.
         abstract getClearAlpha: unit -> float
         abstract setClearAlpha: alpha: float -> unit

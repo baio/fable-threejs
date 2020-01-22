@@ -1,6 +1,5 @@
 module ThreeJs
 
-open Core
 open Fable.Core
 open Three
 
@@ -30,3 +29,14 @@ let Color: __math_Color.ColorStatic = jsNative
 
 [<Import("Vector3", "three")>]
 let Vector3: __math_Vector3.Vector3Static = jsNative
+
+/// 
+module __axes_Helper =
+    type [<AllowNullLiteral>] AxesHelperStatic =
+        [<Emit "new $0($1...)">] abstract Create: float -> __core_Object3D.Object3D
+
+[<Import("AxesHelper", "three")>]
+let AxesHelper: __axes_Helper.AxesHelperStatic = jsNative
+
+[<Import("PlaneGeometry", "three")>]
+let PlaneGeometry: __geometries_PlaneGeometry.PlaneGeometryStatic = jsNative
