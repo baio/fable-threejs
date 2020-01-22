@@ -5,7 +5,7 @@
   <ItemGroup>
     <Compile Include="lib/Core.fs" />
     <Compile Include="lib/Three.fs" />
-    <Compile Include="lib/Globals.fs" />
+    <Compile Include="lib/ThreeJs.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>

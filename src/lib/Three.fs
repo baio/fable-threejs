@@ -396,7 +396,7 @@ module __animation_AnimationAction =
         abstract getRoot: unit -> Object3D
 
     type [<AllowNullLiteral>] AnimationActionStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: mixer: AnimationMixer * clip: AnimationClip * ?localRoot: Object3D -> AnimationAction
+        [<Emit "new $0($1...)">] abstract Create: mixer: AnimationMixer * clip: AnimationClip * ?localRoot: Object3D -> AnimationAction
 
 module __animation_AnimationClip =
     type KeyframeTrack = __animation_KeyframeTrack.KeyframeTrack
@@ -419,7 +419,7 @@ module __animation_AnimationClip =
         abstract clone: unit -> AnimationClip
 
     type [<AllowNullLiteral>] AnimationClipStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?name: string * ?duration: float * ?tracks: ResizeArray<KeyframeTrack> -> AnimationClip
+        [<Emit "new $0($1...)">] abstract Create: ?name: string * ?duration: float * ?tracks: ResizeArray<KeyframeTrack> -> AnimationClip
         abstract CreateFromMorphTargetSequence: name: string * morphTargetSequence: ResizeArray<MorphTarget> * fps: float * noLoop: bool -> AnimationClip
         abstract findByName: clipArray: ResizeArray<AnimationClip> * name: string -> AnimationClip
         abstract CreateClipsFromMorphTargetSequences: morphTargets: ResizeArray<MorphTarget> * fps: float * noLoop: bool -> ResizeArray<AnimationClip>
@@ -451,7 +451,7 @@ module __animation_AnimationMixer =
         abstract uncacheAction: clip: AnimationClip * ?root: Object3D -> unit
 
     type [<AllowNullLiteral>] AnimationMixerStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: root: Object3D -> AnimationMixer
+        [<Emit "new $0($1...)">] abstract Create: root: Object3D -> AnimationMixer
 
 module __animation_AnimationObjectGroup =
 
@@ -466,7 +466,7 @@ module __animation_AnimationObjectGroup =
         abstract uncache: [<ParamArray>] args: ResizeArray<obj option> -> unit
 
     type [<AllowNullLiteral>] AnimationObjectGroupStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: [<ParamArray>] args: ResizeArray<obj option> -> AnimationObjectGroup
+        [<Emit "new $0($1...)">] abstract Create: [<ParamArray>] args: ResizeArray<obj option> -> AnimationObjectGroup
 
     type [<AllowNullLiteral>] AnimationObjectGroupStatsObjects =
         abstract total: float with get, set
@@ -522,7 +522,7 @@ module __animation_KeyframeTrack =
         abstract clone: unit -> KeyframeTrack
 
     type [<AllowNullLiteral>] KeyframeTrackStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> KeyframeTrack
+        [<Emit "new $0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> KeyframeTrack
         abstract toJSON: track: KeyframeTrack -> obj option
 
 module __animation_PropertyBinding =
@@ -553,7 +553,7 @@ module __animation_PropertyBinding =
         abstract SetterByBindingTypeAndVersioning: Array<ResizeArray<Function>> with get, set
 
     type [<AllowNullLiteral>] PropertyBindingStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: rootNode: obj option * path: string * ?parsedPath: obj -> PropertyBinding
+        [<Emit "new $0($1...)">] abstract Create: rootNode: obj option * path: string * ?parsedPath: obj -> PropertyBinding
         abstract create: root: obj option * path: obj option * ?parsedPath: obj -> U2<PropertyBinding, PropertyBinding.Composite>
         abstract sanitizeNodeName: name: string -> string
         abstract parseTrackName: trackName: string -> ParseTrackNameResults
@@ -571,7 +571,7 @@ module __animation_PropertyBinding =
             abstract unbind: unit -> unit
 
         type [<AllowNullLiteral>] CompositeStatic =
-            [<Emit "new THREE.$0($1...)">] abstract Create: targetGroup: obj option * path: obj option * ?parsedPath: obj -> Composite
+            [<Emit "new $0($1...)">] abstract Create: targetGroup: obj option * path: obj option * ?parsedPath: obj -> Composite
 
     type [<AllowNullLiteral>] PropertyBindingBindingType =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: bindingType: string -> float with get, set
@@ -597,7 +597,7 @@ module __animation_PropertyMixer =
         abstract restoreOriginalState: unit -> unit
 
     type [<AllowNullLiteral>] PropertyMixerStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: binding: obj option * typeName: string * valueSize: float -> PropertyMixer
+        [<Emit "new $0($1...)">] abstract Create: binding: obj option * typeName: string * valueSize: float -> PropertyMixer
 
 module __audio_Audio =
     type Object3D = __core_Object3D.Object3D
@@ -655,7 +655,7 @@ module __audio_Audio =
         abstract load: file: string -> Audio
 
     type [<AllowNullLiteral>] AudioStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: listener: AudioListener -> Audio
+        [<Emit "new $0($1...)">] abstract Create: listener: AudioListener -> Audio
 
 module __audio_AudioAnalyser =
     type Audio = __audio_Audio.Audio
@@ -671,7 +671,7 @@ module __audio_AudioAnalyser =
         abstract getData: file: obj option -> obj option
 
     type [<AllowNullLiteral>] AudioAnalyserStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: audio: Audio * fftSize: float -> AudioAnalyser
+        [<Emit "new $0($1...)">] abstract Create: audio: Audio * fftSize: float -> AudioAnalyser
 
 module __audio_AudioContext =
 
@@ -701,7 +701,7 @@ module __audio_AudioListener =
         abstract updateMatrixWorld: ?force: bool -> unit
 
     type [<AllowNullLiteral>] AudioListenerStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> AudioListener
+        [<Emit "new $0($1...)">] abstract Create: unit -> AudioListener
 
 module __audio_PositionalAudio =
     type AudioListener = __audio_AudioListener.AudioListener
@@ -716,7 +716,7 @@ module __audio_PositionalAudio =
         abstract getOutput: unit -> obj option
 
     type [<AllowNullLiteral>] AudioWeakenStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> AudioWeaken
+        [<Emit "new $0($1...)">] abstract Create: unit -> AudioWeaken
 
     type [<AllowNullLiteral>] PositionalAudio =
         inherit AudioWeaken
@@ -734,7 +734,7 @@ module __audio_PositionalAudio =
         abstract updateMatrixWorld: ?force: bool -> unit
 
     type [<AllowNullLiteral>] PositionalAudioStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: listener: AudioListener -> PositionalAudio
+        [<Emit "new $0($1...)">] abstract Create: listener: AudioListener -> PositionalAudio
 
 module __cameras_ArrayCamera =
     type PerspectiveCamera = __cameras_PerspectiveCamera.PerspectiveCamera
@@ -748,7 +748,7 @@ module __cameras_ArrayCamera =
         abstract isArrayCamera: obj with get, set
 
     type [<AllowNullLiteral>] ArrayCameraStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?cameras: ResizeArray<PerspectiveCamera> -> ArrayCamera
+        [<Emit "new $0($1...)">] abstract Create: ?cameras: ResizeArray<PerspectiveCamera> -> ArrayCamera
 
 module __cameras_Camera =
     type Matrix4 = __math_Matrix4.Matrix4
@@ -774,7 +774,7 @@ module __cameras_Camera =
     /// Abstract base class for cameras. This class should always be inherited when you build a new camera.
     type [<AllowNullLiteral>] CameraStatic =
         /// This constructor sets following properties to the correct type: matrixWorldInverse, projectionMatrix and projectionMatrixInverse.
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Camera
+        [<Emit "new $0($1...)">] abstract Create: unit -> Camera
 
 module __cameras_CubeCamera =
     type WebGLRenderTargetCube = __renderers_WebGLRenderTargetCube.WebGLRenderTargetCube
@@ -794,7 +794,7 @@ module __cameras_CubeCamera =
         abstract clear: renderer: WebGLRenderer * color: bool * depth: bool * stencil: bool -> unit
 
     type [<AllowNullLiteral>] CubeCameraStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?near: float * ?far: float * ?cubeResolution: float * ?options: WebGLRenderTargetOptions -> CubeCamera
+        [<Emit "new $0($1...)">] abstract Create: ?near: float * ?far: float * ?cubeResolution: float * ?options: WebGLRenderTargetOptions -> CubeCamera
 
 module __cameras_OrthographicCamera =
     type Camera = __cameras_Camera.Camera
@@ -835,7 +835,7 @@ module __cameras_OrthographicCamera =
         /// <param name="bottom">Camera frustum bottom plane.</param>
         /// <param name="near">Camera frustum near plane.</param>
         /// <param name="far">Camera frustum far plane.</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: left: float * right: float * top: float * bottom: float * ?near: float * ?far: float -> OrthographicCamera
+        [<Emit "new $0($1...)">] abstract Create: left: float * right: float * top: float * bottom: float * ?near: float * ?far: float -> OrthographicCamera
 
     type [<AllowNullLiteral>] OrthographicCameraView =
         abstract enabled: bool with get, set
@@ -922,7 +922,7 @@ module __cameras_PerspectiveCamera =
         /// <param name="aspect">Camera frustum aspect ratio. Default value is 1.</param>
         /// <param name="near">Camera frustum near plane. Default value is 0.1.</param>
         /// <param name="far">Camera frustum far plane. Default value is 2000.</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?fov: float * ?aspect: float * ?near: float * ?far: float -> PerspectiveCamera
+        [<Emit "new $0($1...)">] abstract Create: ?fov: float * ?aspect: float * ?near: float * ?far: float -> PerspectiveCamera
 
     type [<AllowNullLiteral>] PerspectiveCameraView =
         abstract enabled: bool with get, set
@@ -950,7 +950,7 @@ module __cameras_StereoCamera =
         abstract update: camera: PerspectiveCamera -> unit
 
     type [<AllowNullLiteral>] StereoCameraStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> StereoCamera
+        [<Emit "new $0($1...)">] abstract Create: unit -> StereoCamera
 
 module __core_BufferAttribute =
     type Usage = Constants.Usage
@@ -1024,115 +1024,115 @@ module __core_BufferAttribute =
         abstract normalized: bool with get, set
 
     type [<AllowNullLiteral>] BufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: ArrayLike<float> * itemSize: float * ?normalized: bool -> BufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: ArrayLike<float> * itemSize: float * ?normalized: bool -> BufferAttribute
 
     type [<AllowNullLiteral>] Int8Attribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Int8AttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: obj option * itemSize: float -> Int8Attribute
+        [<Emit "new $0($1...)">] abstract Create: array: obj option * itemSize: float -> Int8Attribute
 
     type [<AllowNullLiteral>] Uint8Attribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Uint8AttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: obj option * itemSize: float -> Uint8Attribute
+        [<Emit "new $0($1...)">] abstract Create: array: obj option * itemSize: float -> Uint8Attribute
 
     type [<AllowNullLiteral>] Uint8ClampedAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Uint8ClampedAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: obj option * itemSize: float -> Uint8ClampedAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: obj option * itemSize: float -> Uint8ClampedAttribute
 
     type [<AllowNullLiteral>] Int16Attribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Int16AttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: obj option * itemSize: float -> Int16Attribute
+        [<Emit "new $0($1...)">] abstract Create: array: obj option * itemSize: float -> Int16Attribute
 
     type [<AllowNullLiteral>] Uint16Attribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Uint16AttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: obj option * itemSize: float -> Uint16Attribute
+        [<Emit "new $0($1...)">] abstract Create: array: obj option * itemSize: float -> Uint16Attribute
 
     type [<AllowNullLiteral>] Int32Attribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Int32AttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: obj option * itemSize: float -> Int32Attribute
+        [<Emit "new $0($1...)">] abstract Create: array: obj option * itemSize: float -> Int32Attribute
 
     type [<AllowNullLiteral>] Uint32Attribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Uint32AttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: obj option * itemSize: float -> Uint32Attribute
+        [<Emit "new $0($1...)">] abstract Create: array: obj option * itemSize: float -> Uint32Attribute
 
     type [<AllowNullLiteral>] Float32Attribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Float32AttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: obj option * itemSize: float -> Float32Attribute
+        [<Emit "new $0($1...)">] abstract Create: array: obj option * itemSize: float -> Float32Attribute
 
     type [<AllowNullLiteral>] Float64Attribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Float64AttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: obj option * itemSize: float -> Float64Attribute
+        [<Emit "new $0($1...)">] abstract Create: array: obj option * itemSize: float -> Float64Attribute
 
     type [<AllowNullLiteral>] Int8BufferAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Int8BufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Int8BufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Int8BufferAttribute
 
     type [<AllowNullLiteral>] Uint8BufferAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Uint8BufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Uint8BufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Uint8BufferAttribute
 
     type [<AllowNullLiteral>] Uint8ClampedBufferAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Uint8ClampedBufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Uint8ClampedBufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Uint8ClampedBufferAttribute
 
     type [<AllowNullLiteral>] Int16BufferAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Int16BufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Int16BufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Int16BufferAttribute
 
     type [<AllowNullLiteral>] Uint16BufferAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Uint16BufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Uint16BufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Uint16BufferAttribute
 
     type [<AllowNullLiteral>] Int32BufferAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Int32BufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Int32BufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Int32BufferAttribute
 
     type [<AllowNullLiteral>] Uint32BufferAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Uint32BufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Uint32BufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Uint32BufferAttribute
 
     type [<AllowNullLiteral>] Float32BufferAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Float32BufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Float32BufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Float32BufferAttribute
 
     type [<AllowNullLiteral>] Float64BufferAttribute =
         inherit BufferAttribute
 
     type [<AllowNullLiteral>] Float64BufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Float64BufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: U4<Iterable<float>, ArrayLike<float>, ArrayBuffer, float> * itemSize: float * ?normalized: bool -> Float64BufferAttribute
 
     type [<AllowNullLiteral>] BufferAttributeUpdateRange =
         abstract offset: float with get, set
@@ -1247,7 +1247,7 @@ module __core_BufferGeometry =
     /// It is mainly interesting when working with static objects.
     type [<AllowNullLiteral>] BufferGeometryStatic =
         /// This creates a new BufferGeometry. It also sets several properties to an default value.
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> BufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: unit -> BufferGeometry
         abstract MaxIndex: float with get, set
 
     type [<AllowNullLiteral>] BufferGeometryAttributes =
@@ -1300,7 +1300,7 @@ module __core_Clock =
     /// Object for keeping track of time.
     type [<AllowNullLiteral>] ClockStatic =
         /// <param name="autoStart">Automatically start the clock.</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?autoStart: bool -> Clock
+        [<Emit "new $0($1...)">] abstract Create: ?autoStart: bool -> Clock
 
 module __core_DirectGeometry =
     type Vector3 = __math_Vector3.Vector3
@@ -1344,7 +1344,7 @@ module __core_DirectGeometry =
         abstract dispose: unit -> unit
 
     type [<AllowNullLiteral>] DirectGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> DirectGeometry
+        [<Emit "new $0($1...)">] abstract Create: unit -> DirectGeometry
 
     type [<AllowNullLiteral>] DirectGeometryGroups =
         abstract start: float with get, set
@@ -1380,7 +1380,7 @@ module __core_EventDispatcher =
     /// JavaScript events for custom objects
     type [<AllowNullLiteral>] EventDispatcherStatic =
         /// Creates eventDispatcher object. It needs to be call with '.call' to add the functionality to an object.
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> EventDispatcher
+        [<Emit "new $0($1...)">] abstract Create: unit -> EventDispatcher
 
 module __core_Face3 =
     type Vector3 = __math_Vector3.Vector3
@@ -1423,10 +1423,10 @@ module __core_Face3 =
         /// <param name="normal">Face normal or array of vertex normals.</param>
         /// <param name="color">Face color or array of vertex colors.</param>
         /// <param name="materialIndex">Material index.</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: a: float * b: float * c: float * ?normal: Vector3 * ?color: Color * ?materialIndex: float -> Face3
-        [<Emit "new THREE.$0($1...)">] abstract Create: a: float * b: float * c: float * ?normal: Vector3 * ?vertexColors: ResizeArray<Color> * ?materialIndex: float -> Face3
-        [<Emit "new THREE.$0($1...)">] abstract Create: a: float * b: float * c: float * ?vertexNormals: ResizeArray<Vector3> * ?color: Color * ?materialIndex: float -> Face3
-        [<Emit "new THREE.$0($1...)">] abstract Create: a: float * b: float * c: float * ?vertexNormals: ResizeArray<Vector3> * ?vertexColors: ResizeArray<Color> * ?materialIndex: float -> Face3
+        [<Emit "new $0($1...)">] abstract Create: a: float * b: float * c: float * ?normal: Vector3 * ?color: Color * ?materialIndex: float -> Face3
+        [<Emit "new $0($1...)">] abstract Create: a: float * b: float * c: float * ?normal: Vector3 * ?vertexColors: ResizeArray<Color> * ?materialIndex: float -> Face3
+        [<Emit "new $0($1...)">] abstract Create: a: float * b: float * c: float * ?vertexNormals: ResizeArray<Vector3> * ?color: Color * ?materialIndex: float -> Face3
+        [<Emit "new $0($1...)">] abstract Create: a: float * b: float * c: float * ?vertexNormals: ResizeArray<Vector3> * ?vertexColors: ResizeArray<Color> * ?materialIndex: float -> Face3
 
 module __core_Geometry =
     type Vector3 = __math_Vector3.Vector3
@@ -1563,7 +1563,7 @@ module __core_Geometry =
 
     /// Base class for geometries
     type [<AllowNullLiteral>] GeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Geometry
+        [<Emit "new $0($1...)">] abstract Create: unit -> Geometry
 
 module __core_InstancedBufferAttribute =
     type BufferGeometry = __core_BufferGeometry.BufferGeometry
@@ -1592,7 +1592,7 @@ module __core_InstancedBufferAttribute =
         abstract meshPerAttribute: float with get, set
 
     type [<AllowNullLiteral>] InstancedBufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: ArrayLike<float> * itemSize: float * ?normalized: bool * ?meshPerAttribute: float -> InstancedBufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: array: ArrayLike<float> * itemSize: float * ?normalized: bool * ?meshPerAttribute: float -> InstancedBufferAttribute
 
 module __core_InstancedBufferGeometry =
     type BufferGeometry = __core_BufferGeometry.BufferGeometry
@@ -1607,7 +1607,7 @@ module __core_InstancedBufferGeometry =
         abstract addGroup: start: float * count: float * instances: float -> unit
 
     type [<AllowNullLiteral>] InstancedBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> InstancedBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: unit -> InstancedBufferGeometry
 
     type [<AllowNullLiteral>] InstancedBufferGeometryGroups =
         abstract start: float with get, set
@@ -1625,7 +1625,7 @@ module __core_InstancedInterleavedBuffer =
         abstract meshPerAttribute: float with get, set
 
     type [<AllowNullLiteral>] InstancedInterleavedBufferStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: ArrayLike<float> * stride: float * ?meshPerAttribute: float -> InstancedInterleavedBuffer
+        [<Emit "new $0($1...)">] abstract Create: array: ArrayLike<float> * stride: float * ?meshPerAttribute: float -> InstancedInterleavedBuffer
 
 module __core_InterleavedBuffer =
     type InterleavedBufferAttribute = __core_InterleavedBufferAttribute.InterleavedBufferAttribute
@@ -1650,7 +1650,7 @@ module __core_InterleavedBuffer =
         abstract set: value: ArrayLike<float> * index: float -> InterleavedBuffer
 
     type [<AllowNullLiteral>] InterleavedBufferStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: array: ArrayLike<float> * stride: float -> InterleavedBuffer
+        [<Emit "new $0($1...)">] abstract Create: array: ArrayLike<float> * stride: float -> InterleavedBuffer
 
     type [<AllowNullLiteral>] InterleavedBufferUpdateRange =
         abstract offset: float with get, set
@@ -1683,7 +1683,7 @@ module __core_InterleavedBufferAttribute =
         abstract setXYZW: index: float * x: float * y: float * z: float * w: float -> InterleavedBufferAttribute
 
     type [<AllowNullLiteral>] InterleavedBufferAttributeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: interleavedBuffer: InterleavedBuffer * itemSize: float * offset: float * ?normalized: bool -> InterleavedBufferAttribute
+        [<Emit "new $0($1...)">] abstract Create: interleavedBuffer: InterleavedBuffer * itemSize: float * offset: float * ?normalized: bool -> InterleavedBufferAttribute
 
 module __core_Layers =
 
@@ -1701,7 +1701,7 @@ module __core_Layers =
         abstract test: layers: Layers -> bool
 
     type [<AllowNullLiteral>] LayersStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Layers
+        [<Emit "new $0($1...)">] abstract Create: unit -> Layers
 
 module __core_Object3D =
     type Vector3 = __math_Vector3.Vector3
@@ -1862,7 +1862,7 @@ module __core_Object3D =
 
     /// Base class for scene graph objects
     type [<AllowNullLiteral>] Object3DStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Object3D
+        [<Emit "new $0($1...)">] abstract Create: unit -> Object3D
         abstract DefaultUp: Vector3 with get, set
         abstract DefaultMatrixAutoUpdate: bool with get, set
 
@@ -1941,7 +1941,7 @@ module __core_Raycaster =
         /// <param name="direction">The direction vector that gives direction to the ray. Should be normalized.</param>
         /// <param name="near">All results returned are further away than near. Near can't be negative. Default value is 0.</param>
         /// <param name="far">All results returned are closer then far. Far can't be lower then near . Default value is Infinity.</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?origin: Vector3 * ?direction: Vector3 * ?near: float * ?far: float -> Raycaster
+        [<Emit "new $0($1...)">] abstract Create: ?origin: Vector3 * ?direction: Vector3 * ?near: float * ?far: float -> Raycaster
 
     type [<AllowNullLiteral>] RaycasterParametersPoints =
         abstract threshold: float with get, set
@@ -1959,8 +1959,8 @@ module __core_Uniform =
         abstract onUpdate: callback: Function -> Uniform
 
     type [<AllowNullLiteral>] UniformStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: value: obj option -> Uniform
-        [<Emit "new THREE.$0($1...)">] abstract Create: ``type``: string * value: obj option -> Uniform
+        [<Emit "new $0($1...)">] abstract Create: value: obj option -> Uniform
+        [<Emit "new $0($1...)">] abstract Create: ``type``: string * value: obj option -> Uniform
 
 module __extras_ImageUtils =
     type Mapping = Constants.Mapping
@@ -1994,7 +1994,7 @@ module __extras_PMREMGenerator =
         abstract dispose: unit -> unit
 
     type [<AllowNullLiteral>] PMREMGeneratorStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: renderer: WebGLRenderer -> PMREMGenerator
+        [<Emit "new $0($1...)">] abstract Create: renderer: WebGLRenderer -> PMREMGenerator
 
 module __extras_ShapeUtils =
     let [<Import("ShapeUtils","three/extras/ShapeUtils")>] shapeUtils: ShapeUtils.IExports = jsNative
@@ -2023,7 +2023,7 @@ module __geometries_BoxGeometry =
         abstract parameters: BoxBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] BoxBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?width: float * ?height: float * ?depth: float * ?widthSegments: float * ?heightSegments: float * ?depthSegments: float -> BoxBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?width: float * ?height: float * ?depth: float * ?widthSegments: float * ?heightSegments: float * ?depthSegments: float -> BoxBufferGeometry
 
     /// BoxGeometry is the quadrilateral primitive geometry class. It is typically used for creating a cube or irregular quadrilateral of the dimensions provided within the (optional) 'width', 'height', & 'depth' constructor arguments.
     type [<AllowNullLiteral>] BoxGeometry =
@@ -2038,7 +2038,7 @@ module __geometries_BoxGeometry =
         /// <param name="widthSegments">— Number of segmented faces along the width of the sides.</param>
         /// <param name="heightSegments">— Number of segmented faces along the height of the sides.</param>
         /// <param name="depthSegments">— Number of segmented faces along the depth of the sides.</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?width: float * ?height: float * ?depth: float * ?widthSegments: float * ?heightSegments: float * ?depthSegments: float -> BoxGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?width: float * ?height: float * ?depth: float * ?widthSegments: float * ?heightSegments: float * ?depthSegments: float -> BoxGeometry
 
     type [<AllowNullLiteral>] BoxBufferGeometryParameters =
         abstract width: float with get, set
@@ -2061,14 +2061,14 @@ module __geometries_CircleGeometry =
         abstract parameters: CircleBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] CircleBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?segments: float * ?thetaStart: float * ?thetaLength: float -> CircleBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?segments: float * ?thetaStart: float * ?thetaLength: float -> CircleBufferGeometry
 
     type [<AllowNullLiteral>] CircleGeometry =
         inherit Geometry
         abstract parameters: CircleBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] CircleGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?segments: float * ?thetaStart: float * ?thetaLength: float -> CircleGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?segments: float * ?thetaStart: float * ?thetaLength: float -> CircleGeometry
 
     type [<AllowNullLiteral>] CircleBufferGeometryParameters =
         abstract radius: float with get, set
@@ -2088,13 +2088,13 @@ module __geometries_ConeGeometry =
         inherit CylinderBufferGeometry
 
     type [<AllowNullLiteral>] ConeBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?height: float * ?radialSegment: float * ?heightSegment: float * ?openEnded: bool * ?thetaStart: float * ?thetaLength: float -> ConeBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?height: float * ?radialSegment: float * ?heightSegment: float * ?openEnded: bool * ?thetaStart: float * ?thetaLength: float -> ConeBufferGeometry
 
     type [<AllowNullLiteral>] ConeGeometry =
         inherit CylinderGeometry
 
     type [<AllowNullLiteral>] ConeGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?height: float * ?radialSegment: float * ?heightSegment: float * ?openEnded: bool * ?thetaStart: float * ?thetaLength: float -> ConeGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?height: float * ?radialSegment: float * ?heightSegment: float * ?openEnded: bool * ?thetaStart: float * ?thetaLength: float -> ConeGeometry
 
 module __geometries_CylinderGeometry =
     type Geometry = __core_Geometry.Geometry
@@ -2109,7 +2109,7 @@ module __geometries_CylinderGeometry =
         abstract parameters: CylinderBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] CylinderBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radiusTop: float * ?radiusBottom: float * ?height: float * ?radialSegments: float * ?heightSegments: float * ?openEnded: bool * ?thetaStart: float * ?thetaLength: float -> CylinderBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radiusTop: float * ?radiusBottom: float * ?height: float * ?radialSegments: float * ?heightSegments: float * ?openEnded: bool * ?thetaStart: float * ?thetaLength: float -> CylinderBufferGeometry
 
     type [<AllowNullLiteral>] CylinderGeometry =
         inherit Geometry
@@ -2122,7 +2122,7 @@ module __geometries_CylinderGeometry =
         /// <param name="radiusSegments">— Number of segmented faces around the circumference of the cylinder.</param>
         /// <param name="heightSegments">— Number of rows of faces along the height of the cylinder.</param>
         /// <param name="openEnded">- A Boolean indicating whether or not to cap the ends of the cylinder.</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radiusTop: float * ?radiusBottom: float * ?height: float * ?radiusSegments: float * ?heightSegments: float * ?openEnded: bool * ?thetaStart: float * ?thetaLength: float -> CylinderGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radiusTop: float * ?radiusBottom: float * ?height: float * ?radiusSegments: float * ?heightSegments: float * ?openEnded: bool * ?thetaStart: float * ?thetaLength: float -> CylinderGeometry
 
     type [<AllowNullLiteral>] CylinderBufferGeometryParameters =
         abstract radiusTop: float with get, set
@@ -2146,14 +2146,14 @@ module __geometries_DodecahedronGeometry =
         inherit PolyhedronBufferGeometry
 
     type [<AllowNullLiteral>] DodecahedronBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?detail: float -> DodecahedronBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?detail: float -> DodecahedronBufferGeometry
 
     type [<AllowNullLiteral>] DodecahedronGeometry =
         inherit Geometry
         abstract parameters: DodecahedronGeometryParameters with get, set
 
     type [<AllowNullLiteral>] DodecahedronGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?detail: float -> DodecahedronGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?detail: float -> DodecahedronGeometry
 
     type [<AllowNullLiteral>] DodecahedronGeometryParameters =
         abstract radius: float with get, set
@@ -2170,7 +2170,7 @@ module __geometries_EdgesGeometry =
         inherit BufferGeometry
 
     type [<AllowNullLiteral>] EdgesGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: geometry: U2<BufferGeometry, Geometry> * ?thresholdAngle: float -> EdgesGeometry
+        [<Emit "new $0($1...)">] abstract Create: geometry: U2<BufferGeometry, Geometry> * ?thresholdAngle: float -> EdgesGeometry
 
 module __geometries_ExtrudeGeometry =
     type Curve<'a> = __extras_core_Curve.Curve<'a>
@@ -2206,7 +2206,7 @@ module __geometries_ExtrudeGeometry =
         abstract addShape: shape: Shape * ?options: obj -> unit
 
     type [<AllowNullLiteral>] ExtrudeBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: shapes: U2<Shape, ResizeArray<Shape>> * ?options: ExtrudeGeometryOptions -> ExtrudeBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: shapes: U2<Shape, ResizeArray<Shape>> * ?options: ExtrudeGeometryOptions -> ExtrudeBufferGeometry
         abstract WorldUVGenerator: UVGenerator with get, set
 
     type [<AllowNullLiteral>] ExtrudeGeometry =
@@ -2215,7 +2215,7 @@ module __geometries_ExtrudeGeometry =
         abstract addShape: shape: Shape * ?options: obj -> unit
 
     type [<AllowNullLiteral>] ExtrudeGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: shapes: U2<Shape, ResizeArray<Shape>> * ?options: ExtrudeGeometryOptions -> ExtrudeGeometry
+        [<Emit "new $0($1...)">] abstract Create: shapes: U2<Shape, ResizeArray<Shape>> * ?options: ExtrudeGeometryOptions -> ExtrudeGeometry
         abstract WorldUVGenerator: UVGenerator with get, set
 
 module __geometries_IcosahedronGeometry =
@@ -2230,13 +2230,13 @@ module __geometries_IcosahedronGeometry =
         inherit PolyhedronBufferGeometry
 
     type [<AllowNullLiteral>] IcosahedronBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?detail: float -> IcosahedronBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?detail: float -> IcosahedronBufferGeometry
 
     type [<AllowNullLiteral>] IcosahedronGeometry =
         inherit PolyhedronGeometry
 
     type [<AllowNullLiteral>] IcosahedronGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?detail: float -> IcosahedronGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?detail: float -> IcosahedronGeometry
 
 module __geometries_LatheGeometry =
     type Vector2 = __math_Vector2.Vector2
@@ -2252,14 +2252,14 @@ module __geometries_LatheGeometry =
         abstract parameters: LatheBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] LatheBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: points: ResizeArray<Vector2> * ?segments: float * ?phiStart: float * ?phiLength: float -> LatheBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: points: ResizeArray<Vector2> * ?segments: float * ?phiStart: float * ?phiLength: float -> LatheBufferGeometry
 
     type [<AllowNullLiteral>] LatheGeometry =
         inherit Geometry
         abstract parameters: LatheBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] LatheGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: points: ResizeArray<Vector2> * ?segments: float * ?phiStart: float * ?phiLength: float -> LatheGeometry
+        [<Emit "new $0($1...)">] abstract Create: points: ResizeArray<Vector2> * ?segments: float * ?phiStart: float * ?phiLength: float -> LatheGeometry
 
     type [<AllowNullLiteral>] LatheBufferGeometryParameters =
         abstract points: ResizeArray<Vector2> with get, set
@@ -2279,13 +2279,13 @@ module __geometries_OctahedronGeometry =
         inherit PolyhedronBufferGeometry
 
     type [<AllowNullLiteral>] OctahedronBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?detail: float -> OctahedronBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?detail: float -> OctahedronBufferGeometry
 
     type [<AllowNullLiteral>] OctahedronGeometry =
         inherit PolyhedronGeometry
 
     type [<AllowNullLiteral>] OctahedronGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?detail: float -> OctahedronGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?detail: float -> OctahedronGeometry
 
 module __geometries_ParametricGeometry =
     type Vector3 = __math_Vector3.Vector3
@@ -2301,14 +2301,14 @@ module __geometries_ParametricGeometry =
         abstract parameters: ParametricBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] ParametricBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: func: (float -> float -> Vector3 -> unit) * slices: float * stacks: float -> ParametricBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: func: (float -> float -> Vector3 -> unit) * slices: float * stacks: float -> ParametricBufferGeometry
 
     type [<AllowNullLiteral>] ParametricGeometry =
         inherit Geometry
         abstract parameters: ParametricBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] ParametricGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: func: (float -> float -> Vector3 -> unit) * slices: float * stacks: float -> ParametricGeometry
+        [<Emit "new $0($1...)">] abstract Create: func: (float -> float -> Vector3 -> unit) * slices: float * stacks: float -> ParametricGeometry
 
     type [<AllowNullLiteral>] ParametricBufferGeometryParameters =
         abstract func: (float -> float -> Vector3 -> unit) with get, set
@@ -2328,14 +2328,14 @@ module __geometries_PlaneGeometry =
         abstract parameters: PlaneBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] PlaneBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?width: float * ?height: float * ?widthSegments: float * ?heightSegments: float -> PlaneBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?width: float * ?height: float * ?widthSegments: float * ?heightSegments: float -> PlaneBufferGeometry
 
     type [<AllowNullLiteral>] PlaneGeometry =
         inherit Geometry
         abstract parameters: PlaneBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] PlaneGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?width: float * ?height: float * ?widthSegments: float * ?heightSegments: float -> PlaneGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?width: float * ?height: float * ?widthSegments: float * ?heightSegments: float -> PlaneGeometry
 
     type [<AllowNullLiteral>] PlaneBufferGeometryParameters =
         abstract width: float with get, set
@@ -2357,7 +2357,7 @@ module __geometries_PolyhedronGeometry =
         abstract parameters: PolyhedronBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] PolyhedronBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: vertices: ResizeArray<float> * indices: ResizeArray<float> * ?radius: float * ?detail: float -> PolyhedronBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: vertices: ResizeArray<float> * indices: ResizeArray<float> * ?radius: float * ?detail: float -> PolyhedronBufferGeometry
 
     type [<AllowNullLiteral>] PolyhedronGeometry =
         inherit Geometry
@@ -2365,7 +2365,7 @@ module __geometries_PolyhedronGeometry =
         abstract boundingSphere: Sphere with get, set
 
     type [<AllowNullLiteral>] PolyhedronGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: vertices: ResizeArray<float> * indices: ResizeArray<float> * ?radius: float * ?detail: float -> PolyhedronGeometry
+        [<Emit "new $0($1...)">] abstract Create: vertices: ResizeArray<float> * indices: ResizeArray<float> * ?radius: float * ?detail: float -> PolyhedronGeometry
 
     type [<AllowNullLiteral>] PolyhedronBufferGeometryParameters =
         abstract vertices: ResizeArray<float> with get, set
@@ -2386,14 +2386,14 @@ module __geometries_RingGeometry =
         abstract parameters: RingBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] RingBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?innerRadius: float * ?outerRadius: float * ?thetaSegments: float * ?phiSegments: float * ?thetaStart: float * ?thetaLength: float -> RingBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?innerRadius: float * ?outerRadius: float * ?thetaSegments: float * ?phiSegments: float * ?thetaStart: float * ?thetaLength: float -> RingBufferGeometry
 
     type [<AllowNullLiteral>] RingGeometry =
         inherit Geometry
         abstract parameters: RingBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] RingGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?innerRadius: float * ?outerRadius: float * ?thetaSegments: float * ?phiSegments: float * ?thetaStart: float * ?thetaLength: float -> RingGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?innerRadius: float * ?outerRadius: float * ?thetaSegments: float * ?phiSegments: float * ?thetaStart: float * ?thetaLength: float -> RingGeometry
 
     type [<AllowNullLiteral>] RingBufferGeometryParameters =
         abstract innerRadius: float with get, set
@@ -2416,7 +2416,7 @@ module __geometries_ShapeGeometry =
         inherit BufferGeometry
 
     type [<AllowNullLiteral>] ShapeBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: shapes: U2<Shape, ResizeArray<Shape>> * ?curveSegments: float -> ShapeBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: shapes: U2<Shape, ResizeArray<Shape>> * ?curveSegments: float -> ShapeBufferGeometry
 
     type [<AllowNullLiteral>] ShapeGeometry =
         inherit Geometry
@@ -2424,7 +2424,7 @@ module __geometries_ShapeGeometry =
         abstract addShape: shape: Shape * ?options: obj -> unit
 
     type [<AllowNullLiteral>] ShapeGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: shapes: U2<Shape, ResizeArray<Shape>> * ?curveSegments: float -> ShapeGeometry
+        [<Emit "new $0($1...)">] abstract Create: shapes: U2<Shape, ResizeArray<Shape>> * ?curveSegments: float -> ShapeGeometry
 
 module __geometries_SphereGeometry =
     type Geometry = __core_Geometry.Geometry
@@ -2439,7 +2439,7 @@ module __geometries_SphereGeometry =
         abstract parameters: SphereBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] SphereBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?widthSegments: float * ?heightSegments: float * ?phiStart: float * ?phiLength: float * ?thetaStart: float * ?thetaLength: float -> SphereBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?widthSegments: float * ?heightSegments: float * ?phiStart: float * ?phiLength: float * ?thetaStart: float * ?thetaLength: float -> SphereBufferGeometry
 
     /// A class for generating sphere geometries
     type [<AllowNullLiteral>] SphereGeometry =
@@ -2456,7 +2456,7 @@ module __geometries_SphereGeometry =
         /// <param name="phiLength">— specify horizontal sweep angle size. Default is Math.PI * 2.</param>
         /// <param name="thetaStart">— specify vertical starting angle. Default is 0.</param>
         /// <param name="thetaLength">— specify vertical sweep angle size. Default is Math.PI.</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?widthSegments: float * ?heightSegments: float * ?phiStart: float * ?phiLength: float * ?thetaStart: float * ?thetaLength: float -> SphereGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?widthSegments: float * ?heightSegments: float * ?phiStart: float * ?phiLength: float * ?thetaStart: float * ?thetaLength: float -> SphereGeometry
 
     type [<AllowNullLiteral>] SphereBufferGeometryParameters =
         abstract radius: float with get, set
@@ -2479,13 +2479,13 @@ module __geometries_TetrahedronGeometry =
         inherit PolyhedronBufferGeometry
 
     type [<AllowNullLiteral>] TetrahedronBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?detail: float -> TetrahedronBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?detail: float -> TetrahedronBufferGeometry
 
     type [<AllowNullLiteral>] TetrahedronGeometry =
         inherit PolyhedronGeometry
 
     type [<AllowNullLiteral>] TetrahedronGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?detail: float -> TetrahedronGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?detail: float -> TetrahedronGeometry
 
 module __geometries_TextGeometry =
     type Font = __extras_core_Font.Font
@@ -2512,14 +2512,14 @@ module __geometries_TextGeometry =
         abstract parameters: TextBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] TextBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: text: string * ?parameters: TextGeometryParameters -> TextBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: text: string * ?parameters: TextGeometryParameters -> TextBufferGeometry
 
     type [<AllowNullLiteral>] TextGeometry =
         inherit ExtrudeGeometry
         abstract parameters: TextBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] TextGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: text: string * ?parameters: TextGeometryParameters -> TextGeometry
+        [<Emit "new $0($1...)">] abstract Create: text: string * ?parameters: TextGeometryParameters -> TextGeometry
 
     type [<AllowNullLiteral>] TextBufferGeometryParameters =
         abstract font: Font with get, set
@@ -2545,14 +2545,14 @@ module __geometries_TorusGeometry =
         abstract parameters: TorusBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] TorusBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?tube: float * ?radialSegments: float * ?tubularSegments: float * ?arc: float -> TorusBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?tube: float * ?radialSegments: float * ?tubularSegments: float * ?arc: float -> TorusBufferGeometry
 
     type [<AllowNullLiteral>] TorusGeometry =
         inherit Geometry
         abstract parameters: TorusBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] TorusGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?tube: float * ?radialSegments: float * ?tubularSegments: float * ?arc: float -> TorusGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?tube: float * ?radialSegments: float * ?tubularSegments: float * ?arc: float -> TorusGeometry
 
     type [<AllowNullLiteral>] TorusBufferGeometryParameters =
         abstract radius: float with get, set
@@ -2574,14 +2574,14 @@ module __geometries_TorusKnotGeometry =
         abstract parameters: TorusKnotBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] TorusKnotBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?tube: float * ?tubularSegments: float * ?radialSegments: float * ?p: float * ?q: float -> TorusKnotBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?tube: float * ?tubularSegments: float * ?radialSegments: float * ?p: float * ?q: float -> TorusKnotBufferGeometry
 
     type [<AllowNullLiteral>] TorusKnotGeometry =
         inherit Geometry
         abstract parameters: TorusKnotBufferGeometryParameters with get, set
 
     type [<AllowNullLiteral>] TorusKnotGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?tube: float * ?tubularSegments: float * ?radialSegments: float * ?p: float * ?q: float -> TorusKnotGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?tube: float * ?tubularSegments: float * ?radialSegments: float * ?p: float * ?q: float -> TorusKnotGeometry
 
     type [<AllowNullLiteral>] TorusKnotBufferGeometryParameters =
         abstract radius: float with get, set
@@ -2610,7 +2610,7 @@ module __geometries_TubeGeometry =
         abstract binormals: ResizeArray<Vector3> with get, set
 
     type [<AllowNullLiteral>] TubeBufferGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: path: Curve<Vector3> * ?tubularSegments: float * ?radius: float * ?radiusSegments: float * ?closed: bool -> TubeBufferGeometry
+        [<Emit "new $0($1...)">] abstract Create: path: Curve<Vector3> * ?tubularSegments: float * ?radius: float * ?radiusSegments: float * ?closed: bool -> TubeBufferGeometry
 
     type [<AllowNullLiteral>] TubeGeometry =
         inherit Geometry
@@ -2620,7 +2620,7 @@ module __geometries_TubeGeometry =
         abstract binormals: ResizeArray<Vector3> with get, set
 
     type [<AllowNullLiteral>] TubeGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: path: Curve<Vector3> * ?tubularSegments: float * ?radius: float * ?radiusSegments: float * ?closed: bool -> TubeGeometry
+        [<Emit "new $0($1...)">] abstract Create: path: Curve<Vector3> * ?tubularSegments: float * ?radius: float * ?radiusSegments: float * ?closed: bool -> TubeGeometry
 
     type [<AllowNullLiteral>] TubeBufferGeometryParameters =
         abstract path: Curve<Vector3> with get, set
@@ -2640,7 +2640,7 @@ module __geometries_WireframeGeometry =
         inherit BufferGeometry
 
     type [<AllowNullLiteral>] WireframeGeometryStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: geometry: U2<Geometry, BufferGeometry> -> WireframeGeometry
+        [<Emit "new $0($1...)">] abstract Create: geometry: U2<Geometry, BufferGeometry> -> WireframeGeometry
 
 module __helpers_ArrowHelper =
     type Vector3 = __math_Vector3.Vector3
@@ -2661,7 +2661,7 @@ module __helpers_ArrowHelper =
         abstract setColor: color: U3<Color, string, float> -> unit
 
     type [<AllowNullLiteral>] ArrowHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: dir: Vector3 * ?origin: Vector3 * ?length: float * ?hex: float * ?headLength: float * ?headWidth: float -> ArrowHelper
+        [<Emit "new $0($1...)">] abstract Create: dir: Vector3 * ?origin: Vector3 * ?length: float * ?hex: float * ?headLength: float * ?headWidth: float -> ArrowHelper
 
 module __helpers_AxesHelper =
     type LineSegments = __objects_LineSegments.LineSegments
@@ -2673,7 +2673,7 @@ module __helpers_AxesHelper =
         inherit LineSegments
 
     type [<AllowNullLiteral>] AxesHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?size: float -> AxesHelper
+        [<Emit "new $0($1...)">] abstract Create: ?size: float -> AxesHelper
 
 module __helpers_Box3Helper =
     type Box3 = __math_Box3.Box3
@@ -2688,7 +2688,7 @@ module __helpers_Box3Helper =
         abstract box: Box3 with get, set
 
     type [<AllowNullLiteral>] Box3HelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: box: Box3 * ?color: Color -> Box3Helper
+        [<Emit "new $0($1...)">] abstract Create: box: Box3 * ?color: Color -> Box3Helper
 
 module __helpers_BoxHelper =
     type Object3D = __core_Object3D.Object3D
@@ -2704,7 +2704,7 @@ module __helpers_BoxHelper =
         abstract setFromObject: ``object``: Object3D -> BoxHelper
 
     type [<AllowNullLiteral>] BoxHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ``object``: Object3D * ?color: Color -> BoxHelper
+        [<Emit "new $0($1...)">] abstract Create: ``object``: Object3D * ?color: Color -> BoxHelper
 
 module __helpers_CameraHelper =
     type Camera = __cameras_Camera.Camera
@@ -2720,7 +2720,7 @@ module __helpers_CameraHelper =
         abstract update: unit -> unit
 
     type [<AllowNullLiteral>] CameraHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: camera: Camera -> CameraHelper
+        [<Emit "new $0($1...)">] abstract Create: camera: Camera -> CameraHelper
 
     type [<AllowNullLiteral>] CameraHelperPointMap =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: id: string -> ResizeArray<float> with get, set
@@ -2747,7 +2747,7 @@ module __helpers_DirectionalLightHelper =
         abstract update: unit -> unit
 
     type [<AllowNullLiteral>] DirectionalLightHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: light: DirectionalLight * ?size: float * ?color: U3<Color, string, float> -> DirectionalLightHelper
+        [<Emit "new $0($1...)">] abstract Create: light: DirectionalLight * ?size: float * ?color: U3<Color, string, float> -> DirectionalLightHelper
 
 module __helpers_GridHelper =
     type Color = __math_Color.Color
@@ -2761,7 +2761,7 @@ module __helpers_GridHelper =
         abstract setColors: ?color1: U2<Color, float> * ?color2: U2<Color, float> -> unit
 
     type [<AllowNullLiteral>] GridHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: size: float * divisions: float * ?color1: U2<Color, float> * ?color2: U2<Color, float> -> GridHelper
+        [<Emit "new $0($1...)">] abstract Create: size: float * divisions: float * ?color1: U2<Color, float> * ?color2: U2<Color, float> -> GridHelper
 
 module __helpers_HemisphereLightHelper =
     type HemisphereLight = __lights_HemisphereLight.HemisphereLight
@@ -2784,7 +2784,7 @@ module __helpers_HemisphereLightHelper =
         abstract update: unit -> unit
 
     type [<AllowNullLiteral>] HemisphereLightHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: light: HemisphereLight * size: float * ?color: U3<Color, float, string> -> HemisphereLightHelper
+        [<Emit "new $0($1...)">] abstract Create: light: HemisphereLight * size: float * ?color: U3<Color, float, string> -> HemisphereLightHelper
 
 module __helpers_PlaneHelper =
     type Plane = __math_Plane.Plane
@@ -2800,7 +2800,7 @@ module __helpers_PlaneHelper =
         abstract updateMatrixWorld: ?force: bool -> unit
 
     type [<AllowNullLiteral>] PlaneHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: plane: Plane * ?size: float * ?hex: float -> PlaneHelper
+        [<Emit "new $0($1...)">] abstract Create: plane: Plane * ?size: float * ?hex: float -> PlaneHelper
 
 module __helpers_PointLightHelper =
     type PointLight = __lights_PointLight.PointLight
@@ -2821,7 +2821,7 @@ module __helpers_PointLightHelper =
         abstract update: unit -> unit
 
     type [<AllowNullLiteral>] PointLightHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: light: PointLight * ?sphereSize: float * ?color: U3<Color, string, float> -> PointLightHelper
+        [<Emit "new $0($1...)">] abstract Create: light: PointLight * ?sphereSize: float * ?color: U3<Color, string, float> -> PointLightHelper
 
 module __helpers_PolarGridHelper =
     type LineSegments = __objects_LineSegments.LineSegments
@@ -2834,7 +2834,7 @@ module __helpers_PolarGridHelper =
         inherit LineSegments
 
     type [<AllowNullLiteral>] PolarGridHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: radius: float * radials: float * circles: float * divisions: float * color1: U3<Color, string, float> option * color2: U3<Color, string, float> option -> PolarGridHelper
+        [<Emit "new $0($1...)">] abstract Create: radius: float * radials: float * circles: float * divisions: float * color1: U3<Color, string, float> option * color2: U3<Color, string, float> option -> PolarGridHelper
 
 module __helpers_SkeletonHelper =
     type Object3D = __core_Object3D.Object3D
@@ -2852,7 +2852,7 @@ module __helpers_SkeletonHelper =
         abstract update: unit -> unit
 
     type [<AllowNullLiteral>] SkeletonHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ``object``: Object3D -> SkeletonHelper
+        [<Emit "new $0($1...)">] abstract Create: ``object``: Object3D -> SkeletonHelper
 
 module __helpers_SpotLightHelper =
     type Light = __lights_Light.Light
@@ -2875,7 +2875,7 @@ module __helpers_SpotLightHelper =
         abstract update: unit -> unit
 
     type [<AllowNullLiteral>] SpotLightHelperStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: light: Light * ?color: U3<Color, string, float> -> SpotLightHelper
+        [<Emit "new $0($1...)">] abstract Create: light: Light * ?color: U3<Color, string, float> -> SpotLightHelper
 
 module __lights_AmbientLight =
     type Color = __math_Color.Color
@@ -2893,7 +2893,7 @@ module __lights_AmbientLight =
     type [<AllowNullLiteral>] AmbientLightStatic =
         /// <summary>This creates a Ambientlight with a color.</summary>
         /// <param name="color">Numeric value of the RGB component of the color or a Color instance.</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float -> AmbientLight
+        [<Emit "new $0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float -> AmbientLight
 
 module __lights_AmbientLightProbe =
     type Color = __math_Color.Color
@@ -2907,7 +2907,7 @@ module __lights_AmbientLightProbe =
         abstract isAmbientLightProbe: obj with get, set
 
     type [<AllowNullLiteral>] AmbientLightProbeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float -> AmbientLightProbe
+        [<Emit "new $0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float -> AmbientLightProbe
 
 module __lights_DirectionalLight =
     type Color = __math_Color.Color
@@ -2930,7 +2930,7 @@ module __lights_DirectionalLight =
 
     /// Affects objects using MeshLambertMaterial or MeshPhongMaterial.
     type [<AllowNullLiteral>] DirectionalLightStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float -> DirectionalLight
+        [<Emit "new $0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float -> DirectionalLight
 
 module __lights_DirectionalLightShadow =
     type OrthographicCamera = __cameras_OrthographicCamera.OrthographicCamera
@@ -2944,7 +2944,7 @@ module __lights_DirectionalLightShadow =
         abstract camera: OrthographicCamera with get, set
 
     type [<AllowNullLiteral>] DirectionalLightShadowStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> DirectionalLightShadow
+        [<Emit "new $0($1...)">] abstract Create: unit -> DirectionalLightShadow
 
 module __lights_HemisphereLight =
     type Color = __math_Color.Color
@@ -2960,7 +2960,7 @@ module __lights_HemisphereLight =
         abstract intensity: float with get, set
 
     type [<AllowNullLiteral>] HemisphereLightStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?skyColor: U3<Color, string, float> * ?groundColor: U3<Color, string, float> * ?intensity: float -> HemisphereLight
+        [<Emit "new $0($1...)">] abstract Create: ?skyColor: U3<Color, string, float> * ?groundColor: U3<Color, string, float> * ?intensity: float -> HemisphereLight
 
 module __lights_HemisphereLightProbe =
     type Color = __math_Color.Color
@@ -2974,7 +2974,7 @@ module __lights_HemisphereLightProbe =
         abstract isHemisphereLightProbe: obj with get, set
 
     type [<AllowNullLiteral>] HemisphereLightProbeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?skyColor: U3<Color, string, float> * ?groundColor: U3<Color, string, float> * ?intensity: float -> HemisphereLightProbe
+        [<Emit "new $0($1...)">] abstract Create: ?skyColor: U3<Color, string, float> * ?groundColor: U3<Color, string, float> * ?intensity: float -> HemisphereLightProbe
 
 module __lights_Light =
     type Color = __math_Color.Color
@@ -3005,7 +3005,7 @@ module __lights_Light =
 
     /// Abstract base class for lights.
     type [<AllowNullLiteral>] LightStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?hex: U2<float, string> * ?intensity: float -> Light
+        [<Emit "new $0($1...)">] abstract Create: ?hex: U2<float, string> * ?intensity: float -> Light
 
 module __lights_LightProbe =
     type SphericalHarmonics3 = __math_SphericalHarmonics3.SphericalHarmonics3
@@ -3020,7 +3020,7 @@ module __lights_LightProbe =
         abstract sh: SphericalHarmonics3 with get, set
 
     type [<AllowNullLiteral>] LightProbeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?sh: SphericalHarmonics3 * ?intensity: float -> LightProbe
+        [<Emit "new $0($1...)">] abstract Create: ?sh: SphericalHarmonics3 * ?intensity: float -> LightProbe
 
 module __lights_LightShadow =
     type Camera = __cameras_Camera.Camera
@@ -3050,7 +3050,7 @@ module __lights_LightShadow =
         abstract getFrameExtents: unit -> Vector2
 
     type [<AllowNullLiteral>] LightShadowStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: camera: Camera -> LightShadow
+        [<Emit "new $0($1...)">] abstract Create: camera: Camera -> LightShadow
 
 module __lights_PointLight =
     type Color = __math_Color.Color
@@ -3067,7 +3067,7 @@ module __lights_PointLight =
         abstract camera: PerspectiveCamera with get, set
 
     type [<AllowNullLiteral>] PointLightShadowStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> PointLightShadow
+        [<Emit "new $0($1...)">] abstract Create: unit -> PointLightShadow
 
     /// Affects objects using {@link MeshLambertMaterial} or {@link MeshPhongMaterial}.
     type [<AllowNullLiteral>] PointLight =
@@ -3082,7 +3082,7 @@ module __lights_PointLight =
 
     /// Affects objects using {@link MeshLambertMaterial} or {@link MeshPhongMaterial}.
     type [<AllowNullLiteral>] PointLightStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float * ?distance: float * ?decay: float -> PointLight
+        [<Emit "new $0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float * ?distance: float * ?decay: float -> PointLight
 
 module __lights_PointLightShadow =
     type PerspectiveCamera = __cameras_PerspectiveCamera.PerspectiveCamera
@@ -3096,7 +3096,7 @@ module __lights_PointLightShadow =
         abstract camera: PerspectiveCamera with get, set
 
     type [<AllowNullLiteral>] PointLightShadowStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> PointLightShadow
+        [<Emit "new $0($1...)">] abstract Create: unit -> PointLightShadow
 
 module __lights_RectAreaLight =
     type Light = __lights_Light.Light
@@ -3113,7 +3113,7 @@ module __lights_RectAreaLight =
         abstract intensity: float with get, set
 
     type [<AllowNullLiteral>] RectAreaLightStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float * ?width: float * ?height: float -> RectAreaLight
+        [<Emit "new $0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float * ?width: float * ?height: float -> RectAreaLight
 
 module __lights_SpotLight =
     type Color = __math_Color.Color
@@ -3147,7 +3147,7 @@ module __lights_SpotLight =
 
     /// A point light that can cast shadow in one direction.
     type [<AllowNullLiteral>] SpotLightStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float * ?distance: float * ?angle: float * ?exponent: float * ?decay: float -> SpotLight
+        [<Emit "new $0($1...)">] abstract Create: ?color: U3<Color, string, float> * ?intensity: float * ?distance: float * ?angle: float * ?exponent: float * ?decay: float -> SpotLight
 
 module __lights_SpotLightShadow =
     type PerspectiveCamera = __cameras_PerspectiveCamera.PerspectiveCamera
@@ -3161,7 +3161,7 @@ module __lights_SpotLightShadow =
         abstract camera: PerspectiveCamera with get, set
 
     type [<AllowNullLiteral>] SpotLightShadowStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> SpotLightShadow
+        [<Emit "new $0($1...)">] abstract Create: unit -> SpotLightShadow
 
 module __loaders_AnimationLoader =
     type LoadingManager = __loaders_LoadingManager.LoadingManager
@@ -3177,7 +3177,7 @@ module __loaders_AnimationLoader =
         abstract parse: json: obj option -> ResizeArray<AnimationClip>
 
     type [<AllowNullLiteral>] AnimationLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> AnimationLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> AnimationLoader
 
 module __loaders_AudioLoader =
     type Loader = __loaders_Loader.Loader
@@ -3191,7 +3191,7 @@ module __loaders_AudioLoader =
         abstract load: url: string * onLoad: (AudioBuffer -> unit) * ?onProgress: (ProgressEvent -> unit) * ?onError: (ErrorEvent -> unit) -> unit
 
     type [<AllowNullLiteral>] AudioLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> AudioLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> AudioLoader
 
 module __loaders_BufferGeometryLoader =
     type Loader = __loaders_Loader.Loader
@@ -3208,7 +3208,7 @@ module __loaders_BufferGeometryLoader =
         abstract parse: json: obj option -> U2<InstancedBufferGeometry, BufferGeometry>
 
     type [<AllowNullLiteral>] BufferGeometryLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> BufferGeometryLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> BufferGeometryLoader
 
 module __loaders_Cache =
     let [<Import("Cache","three/loaders/Cache")>] cache: Cache.IExports = jsNative
@@ -3236,7 +3236,7 @@ module __loaders_CompressedTextureLoader =
         abstract load: url: string * onLoad: (CompressedTexture -> unit) * ?onProgress: (ProgressEvent -> unit) * ?onError: (ErrorEvent -> unit) -> unit
 
     type [<AllowNullLiteral>] CompressedTextureLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> CompressedTextureLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> CompressedTextureLoader
 
 module __loaders_CubeTextureLoader =
     type Loader = __loaders_Loader.Loader
@@ -3251,7 +3251,7 @@ module __loaders_CubeTextureLoader =
         abstract load: urls: Array<string> * ?onLoad: (CubeTexture -> unit) * ?onProgress: (ProgressEvent -> unit) * ?onError: (ErrorEvent -> unit) -> CubeTexture
 
     type [<AllowNullLiteral>] CubeTextureLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> CubeTextureLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> CubeTextureLoader
 
 module __loaders_DataTextureLoader =
     type Loader = __loaders_Loader.Loader
@@ -3266,7 +3266,7 @@ module __loaders_DataTextureLoader =
         abstract load: url: string * onLoad: (DataTexture -> unit) * ?onProgress: (ProgressEvent -> unit) * ?onError: (ErrorEvent -> unit) -> unit
 
     type [<AllowNullLiteral>] DataTextureLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> DataTextureLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> DataTextureLoader
 
 module __loaders_FileLoader =
     type Loader = __loaders_Loader.Loader
@@ -3291,7 +3291,7 @@ module __loaders_FileLoader =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: header: string -> string with get, set
 
     type [<AllowNullLiteral>] FileLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> FileLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> FileLoader
 
     type [<AllowNullLiteral>] FileLoaderRequestHeader =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: header: string -> string with get, set
@@ -3310,7 +3310,7 @@ module __loaders_FontLoader =
         abstract parse: json: obj option -> Font
 
     type [<AllowNullLiteral>] FontLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> FontLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> FontLoader
 
 module __loaders_ImageBitmapLoader =
     type Loader = __loaders_Loader.Loader
@@ -3326,7 +3326,7 @@ module __loaders_ImageBitmapLoader =
         abstract load: url: string * ?onLoad: (ImageBitmap -> unit) * ?onProgress: (ProgressEvent -> unit) * ?onError: (ErrorEvent -> unit) -> obj option
 
     type [<AllowNullLiteral>] ImageBitmapLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> ImageBitmapLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> ImageBitmapLoader
 
 module __loaders_ImageLoader =
     type Loader = __loaders_Loader.Loader
@@ -3344,7 +3344,7 @@ module __loaders_ImageLoader =
     /// A loader for loading an image.
     /// Unlike other loaders, this one emits events instead of using predefined callbacks. So if you're interested in getting notified when things happen, you need to add listeners to the object.
     type [<AllowNullLiteral>] ImageLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> ImageLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> ImageLoader
 
 module __loaders_Loader =
     type LoadingManager = __loaders_LoadingManager.LoadingManager
@@ -3364,7 +3364,7 @@ module __loaders_Loader =
 
     /// Base class for implementing loaders.
     type [<AllowNullLiteral>] LoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> Loader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> Loader
 
 module __loaders_LoaderUtils =
     type TypedArray = Polyfills.TypedArray
@@ -3376,7 +3376,7 @@ module __loaders_LoaderUtils =
         interface end
 
     type [<AllowNullLiteral>] LoaderUtilsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> LoaderUtils
+        [<Emit "new $0($1...)">] abstract Create: unit -> LoaderUtils
         abstract decodeText: array: TypedArray -> string
         abstract extractUrlBase: url: string -> string
 
@@ -3418,7 +3418,7 @@ module __loaders_LoadingManager =
 
     /// Handles and keeps track of loaded and pending data.
     type [<AllowNullLiteral>] LoadingManagerStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?onLoad: (unit -> unit) * ?onProgress: (string -> float -> float -> unit) * ?onError: (string -> unit) -> LoadingManager
+        [<Emit "new $0($1...)">] abstract Create: ?onLoad: (unit -> unit) * ?onProgress: (string -> float -> float -> unit) * ?onError: (string -> unit) -> LoadingManager
 
 module __loaders_MaterialLoader =
     type Loader = __loaders_Loader.Loader
@@ -3440,7 +3440,7 @@ module __loaders_MaterialLoader =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: key: string -> Texture with get, set
 
     type [<AllowNullLiteral>] MaterialLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> MaterialLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> MaterialLoader
 
     type [<AllowNullLiteral>] MaterialLoaderTextures =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: key: string -> Texture with get, set
@@ -3471,7 +3471,7 @@ module __loaders_ObjectLoader =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: key: string -> HTMLImageElement with get, set
 
     type [<AllowNullLiteral>] ObjectLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> ObjectLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> ObjectLoader
 
 module __loaders_TextureLoader =
     type Loader = __loaders_Loader.Loader
@@ -3490,7 +3490,7 @@ module __loaders_TextureLoader =
     /// Class for loading a texture.
     /// Unlike other loaders, this one emits events instead of using predefined callbacks. So if you're interested in getting notified when things happen, you need to add listeners to the object.
     type [<AllowNullLiteral>] TextureLoaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?manager: LoadingManager -> TextureLoader
+        [<Emit "new $0($1...)">] abstract Create: ?manager: LoadingManager -> TextureLoader
 
 module __materials_LineBasicMaterial =
     type Color = __math_Color.Color
@@ -3516,7 +3516,7 @@ module __materials_LineBasicMaterial =
         abstract setValues: parameters: LineBasicMaterialParameters -> unit
 
     type [<AllowNullLiteral>] LineBasicMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: LineBasicMaterialParameters -> LineBasicMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: LineBasicMaterialParameters -> LineBasicMaterial
 
 module __materials_LineDashedMaterial =
     type Color = __math_Color.Color
@@ -3543,7 +3543,7 @@ module __materials_LineDashedMaterial =
         abstract setValues: parameters: LineDashedMaterialParameters -> unit
 
     type [<AllowNullLiteral>] LineDashedMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: LineDashedMaterialParameters -> LineDashedMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: LineDashedMaterialParameters -> LineDashedMaterial
 
 module __materials_Material =
     type Plane = __math_Plane.Plane
@@ -3728,7 +3728,7 @@ module __materials_Material =
 
     /// Materials describe the appearance of objects. They are defined in a (mostly) renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer.
     type [<AllowNullLiteral>] MaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Material
+        [<Emit "new $0($1...)">] abstract Create: unit -> Material
 
     type [<StringEnum>] [<RequireQualifiedAccess>] MaterialParametersPrecision =
         | Highp
@@ -3787,7 +3787,7 @@ module __materials_MeshBasicMaterial =
         abstract setValues: parameters: MeshBasicMaterialParameters -> unit
 
     type [<AllowNullLiteral>] MeshBasicMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: MeshBasicMaterialParameters -> MeshBasicMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: MeshBasicMaterialParameters -> MeshBasicMaterial
 
 module __materials_MeshDepthMaterial =
     type DepthPackingStrategies = Constants.DepthPackingStrategies
@@ -3822,7 +3822,7 @@ module __materials_MeshDepthMaterial =
         abstract setValues: parameters: MeshDepthMaterialParameters -> unit
 
     type [<AllowNullLiteral>] MeshDepthMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: MeshDepthMaterialParameters -> MeshDepthMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: MeshDepthMaterialParameters -> MeshDepthMaterial
 
 module __materials_MeshDistanceMaterial =
     type MaterialParameters = __materials_Material.MaterialParameters
@@ -3857,7 +3857,7 @@ module __materials_MeshDistanceMaterial =
         abstract setValues: parameters: MeshDistanceMaterialParameters -> unit
 
     type [<AllowNullLiteral>] MeshDistanceMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: MeshDistanceMaterialParameters -> MeshDistanceMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: MeshDistanceMaterialParameters -> MeshDistanceMaterial
 
 module __materials_MeshLambertMaterial =
     type Color = __math_Color.Color
@@ -3921,7 +3921,7 @@ module __materials_MeshLambertMaterial =
         abstract setValues: parameters: MeshLambertMaterialParameters -> unit
 
     type [<AllowNullLiteral>] MeshLambertMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: MeshLambertMaterialParameters -> MeshLambertMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: MeshLambertMaterialParameters -> MeshLambertMaterial
 
 module __materials_MeshMatcapMaterial =
     type Color = __math_Color.Color
@@ -3972,7 +3972,7 @@ module __materials_MeshMatcapMaterial =
         abstract setValues: parameters: MeshMatcapMaterialParameters -> unit
 
     type [<AllowNullLiteral>] MeshMatcapMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: MeshMatcapMaterialParameters -> MeshMatcapMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: MeshMatcapMaterialParameters -> MeshMatcapMaterial
 
 module __materials_MeshNormalMaterial =
     type MaterialParameters = __materials_Material.MaterialParameters
@@ -4018,7 +4018,7 @@ module __materials_MeshNormalMaterial =
         abstract setValues: parameters: MeshNormalMaterialParameters -> unit
 
     type [<AllowNullLiteral>] MeshNormalMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: MeshNormalMaterialParameters -> MeshNormalMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: MeshNormalMaterialParameters -> MeshNormalMaterial
 
 module __materials_MeshPhongMaterial =
     type Color = __math_Color.Color
@@ -4107,7 +4107,7 @@ module __materials_MeshPhongMaterial =
         abstract setValues: parameters: MeshPhongMaterialParameters -> unit
 
     type [<AllowNullLiteral>] MeshPhongMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: MeshPhongMaterialParameters -> MeshPhongMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: MeshPhongMaterialParameters -> MeshPhongMaterial
 
 module __materials_MeshPhysicalMaterial =
     type Texture = __textures_Texture.Texture
@@ -4138,7 +4138,7 @@ module __materials_MeshPhysicalMaterial =
         abstract clearcoatNormalMap: Texture option with get, set
 
     type [<AllowNullLiteral>] MeshPhysicalMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: parameters: MeshPhysicalMaterialParameters -> MeshPhysicalMaterial
+        [<Emit "new $0($1...)">] abstract Create: parameters: MeshPhysicalMaterialParameters -> MeshPhysicalMaterial
 
 module __materials_MeshStandardMaterial =
     type Color = __math_Color.Color
@@ -4219,7 +4219,7 @@ module __materials_MeshStandardMaterial =
         abstract setValues: parameters: MeshStandardMaterialParameters -> unit
 
     type [<AllowNullLiteral>] MeshStandardMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: MeshStandardMaterialParameters -> MeshStandardMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: MeshStandardMaterialParameters -> MeshStandardMaterial
 
 module __materials_MeshToonMaterial =
     type Color = __math_Color.Color
@@ -4300,7 +4300,7 @@ module __materials_MeshToonMaterial =
         abstract setValues: parameters: MeshToonMaterialParameters -> unit
 
     type [<AllowNullLiteral>] MeshToonMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: MeshToonMaterialParameters -> MeshToonMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: MeshToonMaterialParameters -> MeshToonMaterial
 
 module __materials_PointsMaterial =
     type Material = __materials_Material.Material
@@ -4319,7 +4319,7 @@ module __materials_PointsMaterial =
         abstract toJSON: meta: obj option -> obj option
 
     type [<AllowNullLiteral>] MultiMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?materials: ResizeArray<Material> -> MultiMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?materials: ResizeArray<Material> -> MultiMaterial
 
     type [<AllowNullLiteral>] PointsMaterialParameters =
         inherit MaterialParameters
@@ -4339,7 +4339,7 @@ module __materials_PointsMaterial =
         abstract setValues: parameters: PointsMaterialParameters -> unit
 
     type [<AllowNullLiteral>] PointsMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: PointsMaterialParameters -> PointsMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: PointsMaterialParameters -> PointsMaterial
 
 module __materials_RawShaderMaterial =
     type ShaderMaterialParameters = __materials_ShaderMaterial.ShaderMaterialParameters
@@ -4352,7 +4352,7 @@ module __materials_RawShaderMaterial =
         inherit ShaderMaterial
 
     type [<AllowNullLiteral>] RawShaderMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: ShaderMaterialParameters -> RawShaderMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: ShaderMaterialParameters -> RawShaderMaterial
 
 module __materials_ShaderMaterial =
     type IUniform = __renderers_shaders_UniformsLib.IUniform
@@ -4398,7 +4398,7 @@ module __materials_ShaderMaterial =
         abstract toJSON: meta: obj option -> obj option
 
     type [<AllowNullLiteral>] ShaderMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: ShaderMaterialParameters -> ShaderMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: ShaderMaterialParameters -> ShaderMaterial
 
     type [<AllowNullLiteral>] ShaderMaterialParametersExtensions =
         abstract derivatives: bool option with get, set
@@ -4432,7 +4432,7 @@ module __materials_ShadowMaterial =
         abstract color: Color with get, set
 
     type [<AllowNullLiteral>] ShadowMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: ShadowMaterialParameters -> ShadowMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: ShadowMaterialParameters -> ShadowMaterial
 
 module __materials_SpriteMaterial =
     type Color = __math_Color.Color
@@ -4463,7 +4463,7 @@ module __materials_SpriteMaterial =
         abstract copy: source: SpriteMaterial -> SpriteMaterial
 
     type [<AllowNullLiteral>] SpriteMaterialStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: SpriteMaterialParameters -> SpriteMaterial
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: SpriteMaterialParameters -> SpriteMaterial
 
 module __math_Box2 =
     type Vector2 = __math_Vector2.Vector2
@@ -4500,7 +4500,7 @@ module __math_Box2 =
         abstract isIntersectionBox: b: obj option -> obj option
 
     type [<AllowNullLiteral>] Box2Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?min: Vector2 * ?max: Vector2 -> Box2
+        [<Emit "new $0($1...)">] abstract Create: ?min: Vector2 * ?max: Vector2 -> Box2
 
 module __math_Box3 =
     type Vector3 = __math_Vector3.Vector3
@@ -4551,7 +4551,7 @@ module __math_Box3 =
         abstract isIntersectionSphere: s: obj option -> obj option
 
     type [<AllowNullLiteral>] Box3Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?min: Vector3 * ?max: Vector3 -> Box3
+        [<Emit "new $0($1...)">] abstract Create: ?min: Vector3 * ?max: Vector3 -> Box3
 
 module __math_Color =
 
@@ -4655,8 +4655,8 @@ module __math_Color =
 
     /// Represents a color. See also {@link ColorUtils}.
     type [<AllowNullLiteral>] ColorStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?color: U3<Color, string, float> -> Color
-        [<Emit "new THREE.$0($1...)">] abstract Create: r: float * g: float * b: float -> Color
+        [<Emit "new $0($1...)">] abstract Create: ?color: U3<Color, string, float> -> Color
+        [<Emit "new $0($1...)">] abstract Create: r: float * g: float * b: float -> Color
         /// List of X11 color names.
         abstract NAMES: Record<string, float> with get, set
 
@@ -4677,7 +4677,7 @@ module __math_Cylindrical =
         abstract setFromCartesianCoords: x: float * y: float * z: float -> Cylindrical
 
     type [<AllowNullLiteral>] CylindricalStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?theta: float * ?y: float -> Cylindrical
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?theta: float * ?y: float -> Cylindrical
 
 module __math_Euler =
     type Matrix4 = __math_Matrix4.Matrix4
@@ -4707,7 +4707,7 @@ module __math_Euler =
         abstract _onChange: callback: Function -> Euler
 
     type [<AllowNullLiteral>] EulerStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?x: float * ?y: float * ?z: float * ?order: string -> Euler
+        [<Emit "new $0($1...)">] abstract Create: ?x: float * ?y: float * ?z: float * ?order: string -> Euler
         abstract RotationOrders: ResizeArray<string> with get, set
         abstract DefaultOrder: string with get, set
 
@@ -4739,7 +4739,7 @@ module __math_Frustum =
 
     /// Frustums are used to determine what is inside the camera's field of view. They help speed up the rendering process.
     type [<AllowNullLiteral>] FrustumStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?p0: Plane * ?p1: Plane * ?p2: Plane * ?p3: Plane * ?p4: Plane * ?p5: Plane -> Frustum
+        [<Emit "new $0($1...)">] abstract Create: ?p0: Plane * ?p1: Plane * ?p2: Plane * ?p3: Plane * ?p4: Plane * ?p5: Plane -> Frustum
 
 module __math_Interpolant =
 
@@ -4754,7 +4754,7 @@ module __math_Interpolant =
         abstract evaluate: time: float -> obj option
 
     type [<AllowNullLiteral>] InterpolantStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: parameterPositions: obj option * sampleValues: obj option * sampleSize: float * ?resultBuffer: obj -> Interpolant
+        [<Emit "new $0($1...)">] abstract Create: parameterPositions: obj option * sampleValues: obj option * sampleSize: float * ?resultBuffer: obj -> Interpolant
 
 module __math_Line3 =
     type Vector3 = __math_Vector3.Vector3
@@ -4780,7 +4780,7 @@ module __math_Line3 =
         abstract equals: line: Line3 -> bool
 
     type [<AllowNullLiteral>] Line3Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?start: Vector3 * ?``end``: Vector3 -> Line3
+        [<Emit "new $0($1...)">] abstract Create: ?start: Vector3 * ?``end``: Vector3 -> Line3
 
 module __math_Math =
     let [<Import("_Math","three/math/Math")>] _Math: _Math.IExports = jsNative
@@ -4915,7 +4915,7 @@ module __math_Matrix3 =
     /// ( class Matrix3 implements Matrix&lt;Matrix3&gt; )
     type [<AllowNullLiteral>] Matrix3Static =
         /// Creates an identity matrix.
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Matrix3
+        [<Emit "new $0($1...)">] abstract Create: unit -> Matrix3
 
 module __math_Matrix4 =
     type Vector3 = __math_Vector3.Vector3
@@ -5028,7 +5028,7 @@ module __math_Matrix4 =
 
     /// A 4x4 Matrix.
     type [<AllowNullLiteral>] Matrix4Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Matrix4
+        [<Emit "new $0($1...)">] abstract Create: unit -> Matrix4
 
 module __math_Plane =
     type Vector3 = __math_Vector3.Vector3
@@ -5067,7 +5067,7 @@ module __math_Plane =
         abstract isIntersectionLine: l: obj option -> obj option
 
     type [<AllowNullLiteral>] PlaneStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?normal: Vector3 * ?constant: float -> Plane
+        [<Emit "new $0($1...)">] abstract Create: ?normal: Vector3 * ?constant: float -> Plane
 
 module __math_Quaternion =
     type Euler = __math_Euler.Euler
@@ -5143,7 +5143,7 @@ module __math_Quaternion =
         /// <param name="y">y coordinate</param>
         /// <param name="z">z coordinate</param>
         /// <param name="w">w coordinate</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?x: float * ?y: float * ?z: float * ?w: float -> Quaternion
+        [<Emit "new $0($1...)">] abstract Create: ?x: float * ?y: float * ?z: float * ?w: float -> Quaternion
         /// Adapted from http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/.
         abstract slerp: qa: Quaternion * qb: Quaternion * qm: Quaternion * t: float -> Quaternion
         abstract slerpFlat: dst: ResizeArray<float> * dstOffset: float * src0: ResizeArray<float> * srcOffset: float * src1: ResizeArray<float> * stcOffset1: float * t: float -> Quaternion
@@ -5186,7 +5186,7 @@ module __math_Ray =
         abstract isIntersectionSphere: s: obj option -> obj option
 
     type [<AllowNullLiteral>] RayStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?origin: Vector3 * ?direction: Vector3 -> Ray
+        [<Emit "new $0($1...)">] abstract Create: ?origin: Vector3 * ?direction: Vector3 -> Ray
 
 module __math_Sphere =
     type Vector3 = __math_Vector3.Vector3
@@ -5217,7 +5217,7 @@ module __math_Sphere =
         abstract equals: sphere: Sphere -> bool
 
     type [<AllowNullLiteral>] SphereStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?center: Vector3 * ?radius: float -> Sphere
+        [<Emit "new $0($1...)">] abstract Create: ?center: Vector3 * ?radius: float -> Sphere
 
 module __math_Spherical =
     type Vector3 = __math_Vector3.Vector3
@@ -5237,7 +5237,7 @@ module __math_Spherical =
         abstract setFromCartesianCoords: x: float * y: float * z: float -> Spherical
 
     type [<AllowNullLiteral>] SphericalStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?radius: float * ?phi: float * ?theta: float -> Spherical
+        [<Emit "new $0($1...)">] abstract Create: ?radius: float * ?phi: float * ?theta: float -> Spherical
 
 module __math_SphericalHarmonics3 =
     type Vector3 = __math_Vector3.Vector3
@@ -5276,7 +5276,7 @@ module __math_SphericalHarmonics3 =
         abstract getIrradianceAt: normal: Vector3 * target: Vector3 -> Vector3
 
     type [<AllowNullLiteral>] SphericalHarmonics3Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> SphericalHarmonics3
+        [<Emit "new $0($1...)">] abstract Create: unit -> SphericalHarmonics3
         abstract getBasisAt: normal: Vector3 * shBasis: ResizeArray<float> -> unit
 
 module __math_Triangle =
@@ -5314,7 +5314,7 @@ module __math_Triangle =
         abstract equals: triangle: Triangle -> bool
 
     type [<AllowNullLiteral>] TriangleStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?a: Vector3 * ?b: Vector3 * ?c: Vector3 -> Triangle
+        [<Emit "new $0($1...)">] abstract Create: ?a: Vector3 * ?b: Vector3 * ?c: Vector3 -> Triangle
         abstract getNormal: a: Vector3 * b: Vector3 * c: Vector3 * target: Vector3 -> Vector3
         abstract getBarycoord: point: Vector3 * a: Vector3 * b: Vector3 * c: Vector3 * target: Vector3 -> Vector3
         abstract containsPoint: point: Vector3 * a: Vector3 * b: Vector3 * c: Vector3 -> bool
@@ -5528,7 +5528,7 @@ module __math_Vector2 =
     /// 
     /// ( class Vector2 implements Vector<Vector2> )
     type [<AllowNullLiteral>] Vector2Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?x: float * ?y: float -> Vector2
+        [<Emit "new $0($1...)">] abstract Create: ?x: float * ?y: float -> Vector2
 
 module __math_Vector3 =
     type Euler = __math_Euler.Euler
@@ -5667,7 +5667,7 @@ module __math_Vector3 =
 
     /// 3D vector.
     type [<AllowNullLiteral>] Vector3Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?x: float * ?y: float * ?z: float -> Vector3
+        [<Emit "new $0($1...)">] abstract Create: ?x: float * ?y: float * ?z: float -> Vector3
 
 module __math_Vector4 =
     type Matrix4 = __math_Matrix4.Matrix4
@@ -5781,7 +5781,7 @@ module __math_Vector4 =
     /// 
     /// ( class Vector4 implements Vector<Vector4> )
     type [<AllowNullLiteral>] Vector4Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?x: float * ?y: float * ?z: float * ?w: float -> Vector4
+        [<Emit "new $0($1...)">] abstract Create: ?x: float * ?y: float * ?z: float * ?w: float -> Vector4
 
 module __objects_Bone =
     type Object3D = __core_Object3D.Object3D
@@ -5795,7 +5795,7 @@ module __objects_Bone =
         abstract ``type``: string with get, set
 
     type [<AllowNullLiteral>] BoneStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Bone
+        [<Emit "new $0($1...)">] abstract Create: unit -> Bone
 
 module __objects_Group =
     type Object3D = __core_Object3D.Object3D
@@ -5809,7 +5809,7 @@ module __objects_Group =
         abstract isGroup: obj with get, set
 
     type [<AllowNullLiteral>] GroupStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Group
+        [<Emit "new $0($1...)">] abstract Create: unit -> Group
 
 module __objects_InstancedMesh =
     type Geometry = __core_Geometry.Geometry
@@ -5831,7 +5831,7 @@ module __objects_InstancedMesh =
         abstract setMatrixAt: index: float * matrix: Matrix4 -> unit
 
     type [<AllowNullLiteral>] InstancedMeshStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: geometry: U2<Geometry, BufferGeometry> * material: U2<Material, ResizeArray<Material>> * count: float -> InstancedMesh
+        [<Emit "new $0($1...)">] abstract Create: geometry: U2<Geometry, BufferGeometry> * material: U2<Material, ResizeArray<Material>> * count: float -> InstancedMesh
 
 module __objects_Line =
     type Geometry = __core_Geometry.Geometry
@@ -5854,7 +5854,7 @@ module __objects_Line =
         abstract raycast: raycaster: Raycaster * intersects: ResizeArray<Intersection> -> unit
 
     type [<AllowNullLiteral>] LineStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> * ?mode: float -> Line
+        [<Emit "new $0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> * ?mode: float -> Line
 
     type [<StringEnum>] [<RequireQualifiedAccess>] LineType =
         | [<CompiledName "Line">] Line
@@ -5876,7 +5876,7 @@ module __objects_LineLoop =
         abstract isLineLoop: obj with get, set
 
     type [<AllowNullLiteral>] LineLoopStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> -> LineLoop
+        [<Emit "new $0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> -> LineLoop
 
 module __objects_LineSegments =
     type Geometry = __core_Geometry.Geometry
@@ -5895,7 +5895,7 @@ module __objects_LineSegments =
         abstract isLineSegments: obj with get, set
 
     type [<AllowNullLiteral>] LineSegmentsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> * ?mode: float -> LineSegments
+        [<Emit "new $0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> * ?mode: float -> LineSegments
 
 module __objects_LOD =
     type Object3D = __core_Object3D.Object3D
@@ -5919,7 +5919,7 @@ module __objects_LOD =
         abstract objects: ResizeArray<obj option> with get, set
 
     type [<AllowNullLiteral>] LODStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> LOD
+        [<Emit "new $0($1...)">] abstract Create: unit -> LOD
 
     type [<AllowNullLiteral>] LODLevels =
         abstract distance: float with get, set
@@ -5948,7 +5948,7 @@ module __objects_Mesh =
         abstract raycast: raycaster: Raycaster * intersects: ResizeArray<Intersection> -> unit
 
     type [<AllowNullLiteral>] MeshStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> -> Mesh
+        [<Emit "new $0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> -> Mesh
 
     type [<AllowNullLiteral>] MeshMorphTargetDictionary =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: key: string -> float with get, set
@@ -5982,7 +5982,7 @@ module __objects_Points =
     type [<AllowNullLiteral>] PointsStatic =
         /// <param name="geometry">An instance of Geometry or BufferGeometry.</param>
         /// <param name="material">An instance of Material (optional).</param>
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> -> Points
+        [<Emit "new $0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> -> Points
 
     type [<AllowNullLiteral>] PointsMorphTargetDictionary =
         [<Emit "$0[$1]{{=$2}}">] abstract Item: key: string -> float with get, set
@@ -6010,7 +6010,7 @@ module __objects_Skeleton =
         abstract clone: unit -> Skeleton
 
     type [<AllowNullLiteral>] SkeletonStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: bones: ResizeArray<Bone> * ?boneInverses: ResizeArray<Matrix4> -> Skeleton
+        [<Emit "new $0($1...)">] abstract Create: bones: ResizeArray<Bone> * ?boneInverses: ResizeArray<Matrix4> -> Skeleton
 
 module __objects_SkinnedMesh =
     type Geometry = __core_Geometry.Geometry
@@ -6035,7 +6035,7 @@ module __objects_SkinnedMesh =
         abstract updateMatrixWorld: ?force: bool -> unit
 
     type [<AllowNullLiteral>] SkinnedMeshStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> * ?useVertexTexture: bool -> SkinnedMesh
+        [<Emit "new $0($1...)">] abstract Create: ?geometry: U2<Geometry, BufferGeometry> * ?material: U2<Material, ResizeArray<Material>> * ?useVertexTexture: bool -> SkinnedMesh
 
 module __objects_Sprite =
     type Vector2 = __math_Vector2.Vector2
@@ -6059,7 +6059,7 @@ module __objects_Sprite =
         abstract copy: source: Sprite -> Sprite
 
     type [<AllowNullLiteral>] SpriteStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?material: SpriteMaterial -> Sprite
+        [<Emit "new $0($1...)">] abstract Create: ?material: SpriteMaterial -> Sprite
 
 module __renderers_WebGLMultisampleRenderTarget =
     type WebGLRenderTarget = __renderers_WebGLRenderTarget.WebGLRenderTarget
@@ -6072,7 +6072,7 @@ module __renderers_WebGLMultisampleRenderTarget =
         inherit WebGLRenderTarget
 
     type [<AllowNullLiteral>] WebGLMultisampleRenderTargetStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: width: float * height: float * ?options: WebGLRenderTargetOptions -> WebGLMultisampleRenderTarget
+        [<Emit "new $0($1...)">] abstract Create: width: float * height: float * ?options: WebGLRenderTargetOptions -> WebGLMultisampleRenderTarget
 
 module __renderers_WebGLMultiviewRenderTarget =
     type WebGLRenderTarget = __renderers_WebGLRenderTarget.WebGLRenderTarget
@@ -6086,7 +6086,7 @@ module __renderers_WebGLMultiviewRenderTarget =
         abstract setNumViews: numViews: float -> WebGLMultiviewRenderTarget
 
     type [<AllowNullLiteral>] WebGLMultiviewRenderTargetStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: width: float * height: float * numViews: float * ?options: WebGLRenderTargetOptions -> WebGLMultiviewRenderTarget
+        [<Emit "new $0($1...)">] abstract Create: width: float * height: float * numViews: float * ?options: WebGLRenderTargetOptions -> WebGLMultiviewRenderTarget
 
 module __renderers_WebGLRenderer =
     type Scene = __scenes_Scene.Scene
@@ -6312,7 +6312,7 @@ module __renderers_WebGLRenderer =
     /// This renderer has way better performance than CanvasRenderer.
     type [<AllowNullLiteral>] WebGLRendererStatic =
         /// parameters is an optional object with properties defining the renderer's behaviour. The constructor also accepts no parameters at all. In all cases, it will assume sane defaults when parameters are missing.
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?parameters: WebGLRendererParameters -> WebGLRenderer
+        [<Emit "new $0($1...)">] abstract Create: ?parameters: WebGLRendererParameters -> WebGLRenderer
 
 module __renderers_WebGLRenderTarget =
     type Vector4 = __math_Vector4.Vector4
@@ -6367,7 +6367,7 @@ module __renderers_WebGLRenderTarget =
         abstract dispose: unit -> unit
 
     type [<AllowNullLiteral>] WebGLRenderTargetStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: width: float * height: float * ?options: WebGLRenderTargetOptions -> WebGLRenderTarget
+        [<Emit "new $0($1...)">] abstract Create: width: float * height: float * ?options: WebGLRenderTargetOptions -> WebGLRenderTarget
 
 module __renderers_WebGLRenderTargetCube =
     type WebGLRenderTargetOptions = __renderers_WebGLRenderTarget.WebGLRenderTargetOptions
@@ -6383,7 +6383,7 @@ module __renderers_WebGLRenderTargetCube =
         abstract fromEquirectangularTexture: renderer: WebGLRenderer * texture: Texture -> WebGLRenderTargetCube
 
     type [<AllowNullLiteral>] WebGLRenderTargetCubeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: width: float * height: float * ?options: WebGLRenderTargetOptions -> WebGLRenderTargetCube
+        [<Emit "new $0($1...)">] abstract Create: width: float * height: float * ?options: WebGLRenderTargetOptions -> WebGLRenderTargetCube
 
 module __scenes_Fog =
     type Color = __math_Color.Color
@@ -6413,7 +6413,7 @@ module __scenes_Fog =
 
     /// This class contains the parameters that define linear fog, i.e., that grows linearly denser with the distance.
     type [<AllowNullLiteral>] FogStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: hex: float * ?near: float * ?far: float -> Fog
+        [<Emit "new $0($1...)">] abstract Create: hex: float * ?near: float * ?far: float -> Fog
 
 module __scenes_FogExp2 =
     type Color = __math_Color.Color
@@ -6435,7 +6435,7 @@ module __scenes_FogExp2 =
 
     /// This class contains the parameters that define linear fog, i.e., that grows exponentially denser with the distance.
     type [<AllowNullLiteral>] FogExp2Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: hex: U2<float, string> * ?density: float -> FogExp2
+        [<Emit "new $0($1...)">] abstract Create: hex: U2<float, string> * ?density: float -> FogExp2
 
 module __scenes_Scene =
     type IFog = __scenes_Fog.IFog
@@ -6463,7 +6463,7 @@ module __scenes_Scene =
 
     /// Scenes allow you to set up what and where is to be rendered by three.js. This is where you place objects, lights and cameras.
     type [<AllowNullLiteral>] SceneStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Scene
+        [<Emit "new $0($1...)">] abstract Create: unit -> Scene
 
 module __textures_CanvasTexture =
     type Texture = __textures_Texture.Texture
@@ -6480,7 +6480,7 @@ module __textures_CanvasTexture =
         inherit Texture
 
     type [<AllowNullLiteral>] CanvasTextureStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: canvas: U3<HTMLImageElement, HTMLCanvasElement, HTMLVideoElement> * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?format: PixelFormat * ?``type``: TextureDataType * ?anisotropy: float -> CanvasTexture
+        [<Emit "new $0($1...)">] abstract Create: canvas: U3<HTMLImageElement, HTMLCanvasElement, HTMLVideoElement> * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?format: PixelFormat * ?``type``: TextureDataType * ?anisotropy: float -> CanvasTexture
 
 module __textures_CompressedTexture =
     type Texture = __textures_Texture.Texture
@@ -6499,7 +6499,7 @@ module __textures_CompressedTexture =
         abstract image: CompressedTextureImage with get, set
 
     type [<AllowNullLiteral>] CompressedTextureStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: mipmaps: ResizeArray<ImageData> * width: float * height: float * ?format: CompressedPixelFormat * ?``type``: TextureDataType * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?anisotropy: float * ?encoding: TextureEncoding -> CompressedTexture
+        [<Emit "new $0($1...)">] abstract Create: mipmaps: ResizeArray<ImageData> * width: float * height: float * ?format: CompressedPixelFormat * ?``type``: TextureDataType * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?anisotropy: float * ?encoding: TextureEncoding -> CompressedTexture
 
     type [<AllowNullLiteral>] CompressedTextureImage =
         abstract width: float with get, set
@@ -6522,7 +6522,7 @@ module __textures_CubeTexture =
         abstract images: obj option with get, set
 
     type [<AllowNullLiteral>] CubeTextureStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?images: ResizeArray<obj option> * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?format: PixelFormat * ?``type``: TextureDataType * ?anisotropy: float * ?encoding: TextureEncoding -> CubeTexture
+        [<Emit "new $0($1...)">] abstract Create: ?images: ResizeArray<obj option> * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?format: PixelFormat * ?``type``: TextureDataType * ?anisotropy: float * ?encoding: TextureEncoding -> CubeTexture
 
 module __textures_DataTexture =
     type Texture = __textures_Texture.Texture
@@ -6542,7 +6542,7 @@ module __textures_DataTexture =
         abstract image: ImageData with get, set
 
     type [<AllowNullLiteral>] DataTextureStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: data: TypedArray * width: float * height: float * ?format: PixelFormat * ?``type``: TextureDataType * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?anisotropy: float * ?encoding: TextureEncoding -> DataTexture
+        [<Emit "new $0($1...)">] abstract Create: data: TypedArray * width: float * height: float * ?format: PixelFormat * ?``type``: TextureDataType * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?anisotropy: float * ?encoding: TextureEncoding -> DataTexture
 
 module __textures_DataTexture2DArray =
     type Texture = __textures_Texture.Texture
@@ -6555,7 +6555,7 @@ module __textures_DataTexture2DArray =
         inherit Texture
 
     type [<AllowNullLiteral>] DataTexture2DArrayStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: data: TypedArray * width: float * height: float * depth: float -> DataTexture2DArray
+        [<Emit "new $0($1...)">] abstract Create: data: TypedArray * width: float * height: float * depth: float -> DataTexture2DArray
 
 module __textures_DataTexture3D =
     type Texture = __textures_Texture.Texture
@@ -6568,7 +6568,7 @@ module __textures_DataTexture3D =
         inherit Texture
 
     type [<AllowNullLiteral>] DataTexture3DStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: data: TypedArray * width: float * height: float * depth: float -> DataTexture3D
+        [<Emit "new $0($1...)">] abstract Create: data: TypedArray * width: float * height: float * depth: float -> DataTexture3D
 
 module __textures_DepthTexture =
     type Texture = __textures_Texture.Texture
@@ -6585,7 +6585,7 @@ module __textures_DepthTexture =
         abstract image: DepthTextureImage with get, set
 
     type [<AllowNullLiteral>] DepthTextureStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: width: float * heighht: float * ?``type``: TextureDataType * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?anisotropy: float -> DepthTexture
+        [<Emit "new $0($1...)">] abstract Create: width: float * heighht: float * ?``type``: TextureDataType * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?anisotropy: float -> DepthTexture
 
     type [<AllowNullLiteral>] DepthTextureImage =
         abstract width: float with get, set
@@ -6643,7 +6643,7 @@ module __textures_Texture =
         abstract transformUv: uv: Vector -> unit
 
     type [<AllowNullLiteral>] TextureStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?image: U3<HTMLImageElement, HTMLCanvasElement, HTMLVideoElement> * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?format: PixelFormat * ?``type``: TextureDataType * ?anisotropy: float * ?encoding: TextureEncoding -> Texture
+        [<Emit "new $0($1...)">] abstract Create: ?image: U3<HTMLImageElement, HTMLCanvasElement, HTMLVideoElement> * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?format: PixelFormat * ?``type``: TextureDataType * ?anisotropy: float * ?encoding: TextureEncoding -> Texture
         abstract DEFAULT_IMAGE: obj option with get, set
         abstract DEFAULT_MAPPING: obj option with get, set
 
@@ -6662,7 +6662,7 @@ module __textures_VideoTexture =
         inherit Texture
 
     type [<AllowNullLiteral>] VideoTextureStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: video: HTMLVideoElement * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?format: PixelFormat * ?``type``: TextureDataType * ?anisotropy: float -> VideoTexture
+        [<Emit "new $0($1...)">] abstract Create: video: HTMLVideoElement * ?mapping: Mapping * ?wrapS: Wrapping * ?wrapT: Wrapping * ?magFilter: TextureFilter * ?minFilter: TextureFilter * ?format: PixelFormat * ?``type``: TextureDataType * ?anisotropy: float -> VideoTexture
 
 module __animation_tracks_BooleanKeyframeTrack =
     type KeyframeTrack = __animation_KeyframeTrack.KeyframeTrack
@@ -6674,7 +6674,7 @@ module __animation_tracks_BooleanKeyframeTrack =
         inherit KeyframeTrack
 
     type [<AllowNullLiteral>] BooleanKeyframeTrackStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> -> BooleanKeyframeTrack
+        [<Emit "new $0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> -> BooleanKeyframeTrack
 
 module __animation_tracks_ColorKeyframeTrack =
     type KeyframeTrack = __animation_KeyframeTrack.KeyframeTrack
@@ -6687,7 +6687,7 @@ module __animation_tracks_ColorKeyframeTrack =
         inherit KeyframeTrack
 
     type [<AllowNullLiteral>] ColorKeyframeTrackStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> ColorKeyframeTrack
+        [<Emit "new $0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> ColorKeyframeTrack
 
 module __animation_tracks_NumberKeyframeTrack =
     type KeyframeTrack = __animation_KeyframeTrack.KeyframeTrack
@@ -6700,7 +6700,7 @@ module __animation_tracks_NumberKeyframeTrack =
         inherit KeyframeTrack
 
     type [<AllowNullLiteral>] NumberKeyframeTrackStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> NumberKeyframeTrack
+        [<Emit "new $0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> NumberKeyframeTrack
 
 module __animation_tracks_QuaternionKeyframeTrack =
     type KeyframeTrack = __animation_KeyframeTrack.KeyframeTrack
@@ -6713,7 +6713,7 @@ module __animation_tracks_QuaternionKeyframeTrack =
         inherit KeyframeTrack
 
     type [<AllowNullLiteral>] QuaternionKeyframeTrackStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> QuaternionKeyframeTrack
+        [<Emit "new $0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> QuaternionKeyframeTrack
 
 module __animation_tracks_StringKeyframeTrack =
     type KeyframeTrack = __animation_KeyframeTrack.KeyframeTrack
@@ -6726,7 +6726,7 @@ module __animation_tracks_StringKeyframeTrack =
         inherit KeyframeTrack
 
     type [<AllowNullLiteral>] StringKeyframeTrackStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> StringKeyframeTrack
+        [<Emit "new $0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> StringKeyframeTrack
 
 module __animation_tracks_VectorKeyframeTrack =
     type KeyframeTrack = __animation_KeyframeTrack.KeyframeTrack
@@ -6739,7 +6739,7 @@ module __animation_tracks_VectorKeyframeTrack =
         inherit KeyframeTrack
 
     type [<AllowNullLiteral>] VectorKeyframeTrackStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> VectorKeyframeTrack
+        [<Emit "new $0($1...)">] abstract Create: name: string * times: ResizeArray<obj option> * values: ResizeArray<obj option> * ?interpolation: InterpolationModes -> VectorKeyframeTrack
 
 module __extras_core_Curve =
     type Vector = __math_Vector2.Vector
@@ -6784,7 +6784,7 @@ module __extras_core_Curve =
     /// An extensible curve object which contains methods for interpolation
     /// class Curve&lt;T extends Vector&gt;
     type [<AllowNullLiteral>] CurveStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> Curve<'T>
+        [<Emit "new $0($1...)">] abstract Create: unit -> Curve<'T>
         abstract create: constructorFunc: Function * getPointFunc: Function -> Function
 
 module __extras_core_CurvePath =
@@ -6813,7 +6813,7 @@ module __extras_core_CurvePath =
         abstract createGeometry: points: ResizeArray<'T> -> Geometry
 
     type [<AllowNullLiteral>] CurvePathStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> CurvePath<'T>
+        [<Emit "new $0($1...)">] abstract Create: unit -> CurvePath<'T>
 
 module __extras_core_Font =
     type Shape = __extras_core_Shape.Shape
@@ -6826,7 +6826,7 @@ module __extras_core_Font =
         abstract generateShapes: text: string * size: float -> ResizeArray<Shape>
 
     type [<AllowNullLiteral>] FontStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: jsondata: obj option -> Font
+        [<Emit "new $0($1...)">] abstract Create: jsondata: obj option -> Font
 
 module __extras_core_Interpolations =
     let [<Import("Interpolations","three/extras/core/Interpolations")>] interpolations: Interpolations.IExports = jsNative
@@ -6870,7 +6870,7 @@ module __extras_core_Path =
 
     /// a 2d path representation, comprising of points, lines, and cubes, similar to the html5 2d canvas api. It extends CurvePath.
     type [<AllowNullLiteral>] PathStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?points: ResizeArray<Vector2> -> Path
+        [<Emit "new $0($1...)">] abstract Create: ?points: ResizeArray<Vector2> -> Path
 
 module __extras_core_Shape =
     type Vector2 = __math_Vector2.Vector2
@@ -6901,7 +6901,7 @@ module __extras_core_Shape =
 
     /// Defines a 2d shape plane using paths.
     type [<AllowNullLiteral>] ShapeStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?points: ResizeArray<Vector2> -> Shape
+        [<Emit "new $0($1...)">] abstract Create: ?points: ResizeArray<Vector2> -> Shape
 
 module __extras_core_ShapePath =
     type Vector2 = __math_Vector2.Vector2
@@ -6921,7 +6921,7 @@ module __extras_core_ShapePath =
         abstract toShapes: isCCW: bool * ?noHoles: bool -> ResizeArray<Shape>
 
     type [<AllowNullLiteral>] ShapePathStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> ShapePath
+        [<Emit "new $0($1...)">] abstract Create: unit -> ShapePath
 
 module __extras_curves_ArcCurve =
     type EllipseCurve = __extras_curves_EllipseCurve.EllipseCurve
@@ -6933,7 +6933,7 @@ module __extras_curves_ArcCurve =
         inherit EllipseCurve
 
     type [<AllowNullLiteral>] ArcCurveStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: aX: float * aY: float * aRadius: float * aStartAngle: float * aEndAngle: float * aClockwise: bool -> ArcCurve
+        [<Emit "new $0($1...)">] abstract Create: aX: float * aY: float * aRadius: float * aStartAngle: float * aEndAngle: float * aClockwise: bool -> ArcCurve
 
 module __extras_curves_CatmullRomCurve3 =
     type Vector3 = __math_Vector3.Vector3
@@ -6957,7 +6957,7 @@ module __extras_curves_CatmullRomCurve3 =
         abstract getPoint: t: float -> Vector3
 
     type [<AllowNullLiteral>] CatmullRomCurve3Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?points: ResizeArray<Vector3> * ?closed: bool * ?curveType: string * ?tension: float -> CatmullRomCurve3
+        [<Emit "new $0($1...)">] abstract Create: ?points: ResizeArray<Vector3> * ?closed: bool * ?curveType: string * ?tension: float -> CatmullRomCurve3
 
 module __extras_curves_CubicBezierCurve =
     type Vector2 = __math_Vector2.Vector2
@@ -6974,7 +6974,7 @@ module __extras_curves_CubicBezierCurve =
         abstract v3: Vector2 with get, set
 
     type [<AllowNullLiteral>] CubicBezierCurveStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: v0: Vector2 * v1: Vector2 * v2: Vector2 * v3: Vector2 -> CubicBezierCurve
+        [<Emit "new $0($1...)">] abstract Create: v0: Vector2 * v1: Vector2 * v2: Vector2 * v3: Vector2 -> CubicBezierCurve
 
 module __extras_curves_CubicBezierCurve3 =
     type Vector3 = __math_Vector3.Vector3
@@ -6992,7 +6992,7 @@ module __extras_curves_CubicBezierCurve3 =
         abstract getPoint: t: float -> Vector3
 
     type [<AllowNullLiteral>] CubicBezierCurve3Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: v0: Vector3 * v1: Vector3 * v2: Vector3 * v3: Vector3 -> CubicBezierCurve3
+        [<Emit "new $0($1...)">] abstract Create: v0: Vector3 * v1: Vector3 * v2: Vector3 * v3: Vector3 -> CubicBezierCurve3
 
 module __extras_curves_EllipseCurve =
     type Curve<'a> = __extras_core_Curve.Curve<'a>
@@ -7013,7 +7013,7 @@ module __extras_curves_EllipseCurve =
         abstract aRotation: float with get, set
 
     type [<AllowNullLiteral>] EllipseCurveStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: aX: float * aY: float * xRadius: float * yRadius: float * aStartAngle: float * aEndAngle: float * aClockwise: bool * aRotation: float -> EllipseCurve
+        [<Emit "new $0($1...)">] abstract Create: aX: float * aY: float * xRadius: float * yRadius: float * aStartAngle: float * aEndAngle: float * aClockwise: bool * aRotation: float -> EllipseCurve
 
 module __extras_curves_LineCurve =
     type Vector2 = __math_Vector2.Vector2
@@ -7028,7 +7028,7 @@ module __extras_curves_LineCurve =
         abstract v2: Vector2 with get, set
 
     type [<AllowNullLiteral>] LineCurveStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: v1: Vector2 * v2: Vector2 -> LineCurve
+        [<Emit "new $0($1...)">] abstract Create: v1: Vector2 * v2: Vector2 -> LineCurve
 
 module __extras_curves_LineCurve3 =
     type Vector3 = __math_Vector3.Vector3
@@ -7044,7 +7044,7 @@ module __extras_curves_LineCurve3 =
         abstract getPoint: t: float -> Vector3
 
     type [<AllowNullLiteral>] LineCurve3Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: v1: Vector3 * v2: Vector3 -> LineCurve3
+        [<Emit "new $0($1...)">] abstract Create: v1: Vector3 * v2: Vector3 -> LineCurve3
 
 module __extras_curves_QuadraticBezierCurve =
     type Vector2 = __math_Vector2.Vector2
@@ -7060,7 +7060,7 @@ module __extras_curves_QuadraticBezierCurve =
         abstract v2: Vector2 with get, set
 
     type [<AllowNullLiteral>] QuadraticBezierCurveStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: v0: Vector2 * v1: Vector2 * v2: Vector2 -> QuadraticBezierCurve
+        [<Emit "new $0($1...)">] abstract Create: v0: Vector2 * v1: Vector2 * v2: Vector2 -> QuadraticBezierCurve
 
 module __extras_curves_QuadraticBezierCurve3 =
     type Vector3 = __math_Vector3.Vector3
@@ -7077,7 +7077,7 @@ module __extras_curves_QuadraticBezierCurve3 =
         abstract getPoint: t: float -> Vector3
 
     type [<AllowNullLiteral>] QuadraticBezierCurve3Static =
-        [<Emit "new THREE.$0($1...)">] abstract Create: v0: Vector3 * v1: Vector3 * v2: Vector3 -> QuadraticBezierCurve3
+        [<Emit "new $0($1...)">] abstract Create: v0: Vector3 * v1: Vector3 * v2: Vector3 -> QuadraticBezierCurve3
 
 module __extras_curves_SplineCurve =
     type Vector2 = __math_Vector2.Vector2
@@ -7091,7 +7091,7 @@ module __extras_curves_SplineCurve =
         abstract points: ResizeArray<Vector2> with get, set
 
     type [<AllowNullLiteral>] SplineCurveStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: ?points: ResizeArray<Vector2> -> SplineCurve
+        [<Emit "new $0($1...)">] abstract Create: ?points: ResizeArray<Vector2> -> SplineCurve
 
 module __extras_objects_ImmediateRenderObject =
     type Object3D = __core_Object3D.Object3D
@@ -7106,7 +7106,7 @@ module __extras_objects_ImmediateRenderObject =
         abstract render: renderCallback: Function -> unit
 
     type [<AllowNullLiteral>] ImmediateRenderObjectStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: material: Material -> ImmediateRenderObject
+        [<Emit "new $0($1...)">] abstract Create: material: Material -> ImmediateRenderObject
 
 module __math_interpolants_CubicInterpolant =
     type Interpolant = __math_Interpolant.Interpolant
@@ -7119,7 +7119,7 @@ module __math_interpolants_CubicInterpolant =
         abstract interpolate_: i1: float * t0: float * t: float * t1: float -> obj option
 
     type [<AllowNullLiteral>] CubicInterpolantStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: parameterPositions: obj option * samplesValues: obj option * sampleSize: float * ?resultBuffer: obj -> CubicInterpolant
+        [<Emit "new $0($1...)">] abstract Create: parameterPositions: obj option * samplesValues: obj option * sampleSize: float * ?resultBuffer: obj -> CubicInterpolant
 
 module __math_interpolants_DiscreteInterpolant =
     type Interpolant = __math_Interpolant.Interpolant
@@ -7132,7 +7132,7 @@ module __math_interpolants_DiscreteInterpolant =
         abstract interpolate_: i1: float * t0: float * t: float * t1: float -> obj option
 
     type [<AllowNullLiteral>] DiscreteInterpolantStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: parameterPositions: obj option * samplesValues: obj option * sampleSize: float * ?resultBuffer: obj -> DiscreteInterpolant
+        [<Emit "new $0($1...)">] abstract Create: parameterPositions: obj option * samplesValues: obj option * sampleSize: float * ?resultBuffer: obj -> DiscreteInterpolant
 
 module __math_interpolants_LinearInterpolant =
     type Interpolant = __math_Interpolant.Interpolant
@@ -7145,7 +7145,7 @@ module __math_interpolants_LinearInterpolant =
         abstract interpolate_: i1: float * t0: float * t: float * t1: float -> obj option
 
     type [<AllowNullLiteral>] LinearInterpolantStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: parameterPositions: obj option * samplesValues: obj option * sampleSize: float * ?resultBuffer: obj -> LinearInterpolant
+        [<Emit "new $0($1...)">] abstract Create: parameterPositions: obj option * samplesValues: obj option * sampleSize: float * ?resultBuffer: obj -> LinearInterpolant
 
 module __math_interpolants_QuaternionLinearInterpolant =
     type Interpolant = __math_Interpolant.Interpolant
@@ -7158,7 +7158,7 @@ module __math_interpolants_QuaternionLinearInterpolant =
         abstract interpolate_: i1: float * t0: float * t: float * t1: float -> obj option
 
     type [<AllowNullLiteral>] QuaternionLinearInterpolantStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: parameterPositions: obj option * samplesValues: obj option * sampleSize: float * ?resultBuffer: obj -> QuaternionLinearInterpolant
+        [<Emit "new $0($1...)">] abstract Create: parameterPositions: obj option * samplesValues: obj option * sampleSize: float * ?resultBuffer: obj -> QuaternionLinearInterpolant
 
 module __renderers_shaders_ShaderChunk =
 
@@ -7502,7 +7502,7 @@ module __renderers_webgl_WebGLAnimation =
         abstract setContext: value: U2<WebGLRenderingContext, WebGL2RenderingContext> -> unit
 
     type [<AllowNullLiteral>] WebGLAnimationStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> WebGLAnimation
+        [<Emit "new $0($1...)">] abstract Create: unit -> WebGLAnimation
 
 module __renderers_webgl_WebGLAttributes =
     type BufferAttribute = __core_BufferAttribute.BufferAttribute
@@ -7523,7 +7523,7 @@ module __renderers_webgl_WebGLAttributes =
         abstract version: float with get, set
 
     type [<AllowNullLiteral>] WebGLAttributesStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: U2<WebGLRenderingContext, WebGL2RenderingContext> -> WebGLAttributes
+        [<Emit "new $0($1...)">] abstract Create: gl: U2<WebGLRenderingContext, WebGL2RenderingContext> -> WebGLAttributes
 
 module __renderers_webgl_WebGLBackground =
     type Color = __math_Color.Color
@@ -7544,7 +7544,7 @@ module __renderers_webgl_WebGLBackground =
         abstract render: renderList: WebGLRenderLists * scene: Scene * camera: obj option * forceClear: obj option -> unit
 
     type [<AllowNullLiteral>] WebGLBackgroundStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: renderer: WebGLRenderer * state: WebGLState * objects: WebGLObjects * premultipliedAlpha: obj option -> WebGLBackground
+        [<Emit "new $0($1...)">] abstract Create: renderer: WebGLRenderer * state: WebGLState * objects: WebGLObjects * premultipliedAlpha: obj option -> WebGLBackground
 
 module __renderers_webgl_WebGLBufferRenderer =
 
@@ -7557,7 +7557,7 @@ module __renderers_webgl_WebGLBufferRenderer =
         abstract renderInstances: geometry: obj option -> unit
 
     type [<AllowNullLiteral>] WebGLBufferRendererStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: _gl: WebGLRenderingContext * extensions: obj option * _infoRender: obj option -> WebGLBufferRenderer
+        [<Emit "new $0($1...)">] abstract Create: _gl: WebGLRenderingContext * extensions: obj option * _infoRender: obj option -> WebGLBufferRenderer
 
 module __renderers_webgl_WebGLCapabilities =
 
@@ -7587,7 +7587,7 @@ module __renderers_webgl_WebGLCapabilities =
         abstract getMaxPrecision: precision: string -> string
 
     type [<AllowNullLiteral>] WebGLCapabilitiesStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext * extensions: obj option * parameters: WebGLCapabilitiesParameters -> WebGLCapabilities
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext * extensions: obj option * parameters: WebGLCapabilitiesParameters -> WebGLCapabilities
 
 module __renderers_webgl_WebGLClipping =
     type Camera = __cameras_Camera.Camera
@@ -7604,7 +7604,7 @@ module __renderers_webgl_WebGLClipping =
         abstract setState: planes: ResizeArray<obj option> * clipShadows: bool * camera: Camera * cache: bool * fromCache: bool -> unit
 
     type [<AllowNullLiteral>] WebGLClippingStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> WebGLClipping
+        [<Emit "new $0($1...)">] abstract Create: unit -> WebGLClipping
 
     type [<AllowNullLiteral>] WebGLClippingUniform =
         abstract value: obj option with get, set
@@ -7619,7 +7619,7 @@ module __renderers_webgl_WebGLExtensions =
         abstract get: name: string -> obj option
 
     type [<AllowNullLiteral>] WebGLExtensionsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext -> WebGLExtensions
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext -> WebGLExtensions
 
 module __renderers_webgl_WebGLGeometries =
     type WebGLAttributes = __renderers_webgl_WebGLAttributes.WebGLAttributes
@@ -7638,7 +7638,7 @@ module __renderers_webgl_WebGLGeometries =
         abstract getWireframeAttribute: geometry: U2<Geometry, BufferGeometry> -> BufferAttribute
 
     type [<AllowNullLiteral>] WebGLGeometriesStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext * attributes: WebGLAttributes * info: WebGLInfo -> WebGLGeometries
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext * attributes: WebGLAttributes * info: WebGLInfo -> WebGLGeometries
 
 module __renderers_webgl_WebGLIndexedBufferRenderer =
 
@@ -7652,7 +7652,7 @@ module __renderers_webgl_WebGLIndexedBufferRenderer =
         abstract renderInstances: geometry: obj option * start: obj option * count: float * primcount: float -> unit
 
     type [<AllowNullLiteral>] WebGLIndexedBufferRendererStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext * extensions: obj option * info: obj option * capabilities: obj option -> WebGLIndexedBufferRenderer
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext * extensions: obj option * info: obj option * capabilities: obj option -> WebGLIndexedBufferRenderer
 
 module __renderers_webgl_WebGLInfo =
     type WebGLProgram = __renderers_webgl_WebGLProgram.WebGLProgram
@@ -7671,7 +7671,7 @@ module __renderers_webgl_WebGLInfo =
 
     /// An object with a series of statistical information about the graphics board memory and the rendering process.
     type [<AllowNullLiteral>] WebGLInfoStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext -> WebGLInfo
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext -> WebGLInfo
 
     type [<AllowNullLiteral>] WebGLInfoMemory =
         abstract geometries: float with get, set
@@ -7695,7 +7695,7 @@ module __renderers_webgl_WebGLLights =
         abstract setup: lights: obj option * shadows: obj option * camera: obj option -> unit
 
     type [<AllowNullLiteral>] WebGLLightsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext * properties: obj option * info: obj option -> WebGLLights
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext * properties: obj option * info: obj option -> WebGLLights
 
     type [<AllowNullLiteral>] WebGLLightsStateHash =
         abstract directionalLength: float with get, set
@@ -7740,7 +7740,7 @@ module __renderers_webgl_WebGLMorphtargets =
         abstract update: ``object``: Object3D * geometry: BufferGeometry * material: Material * program: WebGLProgram -> unit
 
     type [<AllowNullLiteral>] WebGLMorphtargetsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext -> WebGLMorphtargets
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext -> WebGLMorphtargets
 
 module __renderers_webgl_WebGLMultiview =
     type Camera = __cameras_Camera.Camera
@@ -7760,7 +7760,7 @@ module __renderers_webgl_WebGLMultiview =
         abstract updateObjectMatricesUniforms: ``object``: Object3D * camera: Camera * uniforms: WebGLUniforms -> unit
 
     type [<AllowNullLiteral>] WebGLMultiviewStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: renderer: WebGLRenderer * gl: WebGLRenderingContext -> WebGLMultiview
+        [<Emit "new $0($1...)">] abstract Create: renderer: WebGLRenderer * gl: WebGLRenderingContext -> WebGLMultiview
 
 module __renderers_webgl_WebGLObjects =
 
@@ -7772,7 +7772,7 @@ module __renderers_webgl_WebGLObjects =
         abstract dispose: unit -> unit
 
     type [<AllowNullLiteral>] WebGLObjectsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext * geometries: obj option * attributes: obj option * info: obj option -> WebGLObjects
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext * geometries: obj option * attributes: obj option * info: obj option -> WebGLObjects
 
 module __renderers_webgl_WebGLProgram =
     type WebGLRenderer = __renderers_WebGLRenderer.WebGLRenderer
@@ -7799,7 +7799,7 @@ module __renderers_webgl_WebGLProgram =
         abstract destroy: unit -> unit
 
     type [<AllowNullLiteral>] WebGLProgramStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: renderer: WebGLRenderer * extensions: WebGLExtensions * cacheKey: string * material: ShaderMaterial * shader: WebGLShader * parameters: WebGLRendererParameters -> WebGLProgram
+        [<Emit "new $0($1...)">] abstract Create: renderer: WebGLRenderer * extensions: WebGLExtensions * cacheKey: string * material: ShaderMaterial * shader: WebGLShader * parameters: WebGLRendererParameters -> WebGLProgram
 
 module __renderers_webgl_WebGLPrograms =
     type WebGLRenderer = __renderers_WebGLRenderer.WebGLRenderer
@@ -7819,7 +7819,7 @@ module __renderers_webgl_WebGLPrograms =
         abstract releaseProgram: program: WebGLProgram -> unit
 
     type [<AllowNullLiteral>] WebGLProgramsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: renderer: WebGLRenderer * extensions: WebGLExtensions * capabilities: WebGLCapabilities -> WebGLPrograms
+        [<Emit "new $0($1...)">] abstract Create: renderer: WebGLRenderer * extensions: WebGLExtensions * capabilities: WebGLCapabilities -> WebGLPrograms
 
 module __renderers_webgl_WebGLProperties =
 
@@ -7833,7 +7833,7 @@ module __renderers_webgl_WebGLProperties =
         abstract dispose: unit -> unit
 
     type [<AllowNullLiteral>] WebGLPropertiesStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> WebGLProperties
+        [<Emit "new $0($1...)">] abstract Create: unit -> WebGLProperties
 
 module __renderers_webgl_WebGLRenderLists =
     type Object3D = __core_Object3D.Object3D
@@ -7871,14 +7871,14 @@ module __renderers_webgl_WebGLRenderLists =
         abstract sort: unit -> unit
 
     type [<AllowNullLiteral>] WebGLRenderListStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> WebGLRenderList
+        [<Emit "new $0($1...)">] abstract Create: unit -> WebGLRenderList
 
     type [<AllowNullLiteral>] WebGLRenderLists =
         abstract dispose: unit -> unit
         abstract get: scene: Scene * camera: Camera -> WebGLRenderList
 
     type [<AllowNullLiteral>] WebGLRenderListsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> WebGLRenderLists
+        [<Emit "new $0($1...)">] abstract Create: unit -> WebGLRenderLists
 
 module __renderers_webgl_WebGLRenderStates =
     type Scene = __scenes_Scene.Scene
@@ -7901,7 +7901,7 @@ module __renderers_webgl_WebGLRenderStates =
         abstract dispose: unit -> unit
 
     type [<AllowNullLiteral>] WebGLRenderStatesStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> WebGLRenderStates
+        [<Emit "new $0($1...)">] abstract Create: unit -> WebGLRenderStates
 
     type [<AllowNullLiteral>] WebGLRenderStateState =
         abstract lightsArray: ResizeArray<Light> with get, set
@@ -7917,7 +7917,7 @@ module __renderers_webgl_WebGLShader =
         interface end
 
     type [<AllowNullLiteral>] WebGLShaderStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext * ``type``: string * string: string -> WebGLShader
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext * ``type``: string * string: string -> WebGLShader
 
 module __renderers_webgl_WebGLShadowMap =
     type Scene = __scenes_Scene.Scene
@@ -7937,7 +7937,7 @@ module __renderers_webgl_WebGLShadowMap =
         abstract cullFace: obj option with get, set
 
     type [<AllowNullLiteral>] WebGLShadowMapStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: _renderer: WebGLRenderer * _lights: ResizeArray<obj option> * _objects: ResizeArray<obj option> * capabilities: obj option -> WebGLShadowMap
+        [<Emit "new $0($1...)">] abstract Create: _renderer: WebGLRenderer * _lights: ResizeArray<obj option> * _objects: ResizeArray<obj option> * capabilities: obj option -> WebGLShadowMap
 
 module __renderers_webgl_WebGLState =
     type CullFace = Constants.CullFace
@@ -7964,7 +7964,7 @@ module __renderers_webgl_WebGLState =
         abstract reset: unit -> unit
 
     type [<AllowNullLiteral>] WebGLColorBufferStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> WebGLColorBuffer
+        [<Emit "new $0($1...)">] abstract Create: unit -> WebGLColorBuffer
 
     type [<AllowNullLiteral>] WebGLDepthBuffer =
         abstract setTest: depthTest: bool -> unit
@@ -7975,7 +7975,7 @@ module __renderers_webgl_WebGLState =
         abstract reset: unit -> unit
 
     type [<AllowNullLiteral>] WebGLDepthBufferStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> WebGLDepthBuffer
+        [<Emit "new $0($1...)">] abstract Create: unit -> WebGLDepthBuffer
 
     type [<AllowNullLiteral>] WebGLStencilBuffer =
         abstract setTest: stencilTest: bool -> unit
@@ -7987,7 +7987,7 @@ module __renderers_webgl_WebGLState =
         abstract reset: unit -> unit
 
     type [<AllowNullLiteral>] WebGLStencilBufferStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: unit -> WebGLStencilBuffer
+        [<Emit "new $0($1...)">] abstract Create: unit -> WebGLStencilBuffer
 
     type [<AllowNullLiteral>] WebGLState =
         abstract buffers: WebGLStateBuffers with get, set
@@ -8017,7 +8017,7 @@ module __renderers_webgl_WebGLState =
         abstract reset: unit -> unit
 
     type [<AllowNullLiteral>] WebGLStateStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext * extensions: WebGLExtensions * capabilities: WebGLCapabilities -> WebGLState
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext * extensions: WebGLExtensions * capabilities: WebGLCapabilities -> WebGLState
 
     type [<AllowNullLiteral>] WebGLStateBuffers =
         abstract color: WebGLColorBuffer with get, set
@@ -8050,7 +8050,7 @@ module __renderers_webgl_WebGLTextures =
         abstract safeSetTextureCube: texture: obj option * slot: float -> unit
 
     type [<AllowNullLiteral>] WebGLTexturesStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext * extensions: WebGLExtensions * state: WebGLState * properties: WebGLProperties * capabilities: WebGLCapabilities * utils: WebGLUtils * info: WebGLInfo -> WebGLTextures
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext * extensions: WebGLExtensions * state: WebGLState * properties: WebGLProperties * capabilities: WebGLCapabilities * utils: WebGLUtils * info: WebGLInfo -> WebGLTextures
 
 module __renderers_webgl_WebGLUniforms =
     type WebGLProgram = __renderers_webgl_WebGLProgram.WebGLProgram
@@ -8064,7 +8064,7 @@ module __renderers_webgl_WebGLUniforms =
         abstract setOptional: gl: WebGLRenderingContext * ``object``: obj option * name: string -> unit
 
     type [<AllowNullLiteral>] WebGLUniformsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: WebGLRenderingContext * program: WebGLProgram -> WebGLUniforms
+        [<Emit "new $0($1...)">] abstract Create: gl: WebGLRenderingContext * program: WebGLProgram -> WebGLUniforms
         abstract upload: gl: WebGLRenderingContext * seq: obj option * values: ResizeArray<obj option> * textures: WebGLTextures -> unit
         abstract seqWithValue: seq: obj option * values: ResizeArray<obj option> -> ResizeArray<obj option>
 
@@ -8077,7 +8077,7 @@ module __renderers_webgl_WebGLUtils =
         abstract convert: p: obj option -> unit
 
     type [<AllowNullLiteral>] WebGLUtilsStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: gl: U2<WebGLRenderingContext, WebGL2RenderingContext> * extensions: obj option * capabilities: obj option -> WebGLUtils
+        [<Emit "new $0($1...)">] abstract Create: gl: U2<WebGLRenderingContext, WebGL2RenderingContext> * extensions: obj option * capabilities: obj option -> WebGLUtils
 
 module __renderers_webxr_WebXRManager =
     type Group = __objects_Group.Group
@@ -8099,4 +8099,4 @@ module __renderers_webxr_WebXRManager =
         abstract dispose: unit -> unit
 
     type [<AllowNullLiteral>] WebXRManagerStatic =
-        [<Emit "new THREE.$0($1...)">] abstract Create: renderer: obj option * gl: WebGLRenderingContext -> WebXRManager
+        [<Emit "new $0($1...)">] abstract Create: renderer: obj option * gl: WebGLRenderingContext -> WebXRManager
