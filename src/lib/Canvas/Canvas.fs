@@ -30,16 +30,16 @@ let createCamera (width, height) =
     camera
 
 let createPlane (width, height) =
-    let planeGeometry = PlaneGeometry.Create(width, height, 1., 1.)  
+    let planeGeometry = PlaneGeometry.Create(width, height, 1., 1.)
     let planeMaterial = MeshBasicMaterial.Create(color = Color.Create(0xcccccc), wireframe = true)
     Mesh.Create(planeGeometry, planeMaterial)
 
-let createCube () =
+let createCube() =
     let geometry = BoxGeometry.Create(1., 1., 1.)
     let color = Color.Create(0xff0000)
     let material = MeshBasicMaterial.Create(color = color)
     Mesh.Create(geometry, material)
- 
+
 
 let init() =
 
@@ -56,7 +56,7 @@ let init() =
     let axesHelper = AxesHelper.Create 20.
     scene.add axesHelper |> ignore
 
-    let plane = createPlane(width, height)
+    let plane = createPlane (width, height)
     scene.add plane |> ignore
 
     let cube = createCube()
