@@ -3,7 +3,6 @@ module App
 open Fable.React
 open Fable.React.Props
 open Models.Canvas
-open FSharpx.Collections
 
 type Model = Canvas
 
@@ -14,6 +13,20 @@ type ModelHolder =
     { mutable model: Model option }
 
 let mutable __modelHolder: ModelHolder = { model = Option.None }
+
+/// <summary>
+/// <code>update f k map</code> updates the value <code>x</code> at key <code>k</code> (if it is in the map).
+/// If <code>f x</code> is <code>None</code>, the element is deleted.
+/// If it is <code>Some y</code>, the key is bound to the new value <code>y</code>.
+/// </summary>
+let updateWith f key map =
+    let inner v map =
+        match f v with
+        | Some value -> map |> Map.add key value
+        | None -> map |> Map.remove key
+    match Map.tryFind key map with
+    | Some v -> inner v map
+    | None -> map    
 
 let init(): Model =
     let objects =
@@ -38,7 +51,7 @@ let moveObject = function
 let _update msg model: Model =
     let objects = model.objects
     match msg with
-    | Move -> { model with objects = objects |> Map.updateWith (moveObject >> Some) 1 }
+    | Move -> { model with objects = objects |> updateWith (moveObject >> Some) 1 }
 
 let update msg model: Model =
     let upd = _update msg model
