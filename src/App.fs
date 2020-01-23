@@ -1,11 +1,13 @@
 module App
 
 open Fable.React
+open Fable.React.Props
 open Models.Canvas
+open FSharpx.Collections
 
 type Model = Canvas
 
-type Msg = None
+type Msg = Move
 
 // TODO
 type ModelHolder =
@@ -28,11 +30,22 @@ let init(): Model =
     __modelHolder.model <- Some model
     model
 
-let update msg model: Model =
-    __modelHolder.model <- Some model
-    model
+let moveObject = function
+    | Cube cube ->
+        let position = { cube.position with x = cube.position.x - 1 }
+        Cube { cube with position = position }
 
-let view model dispatch = div [] [ str "hello" ]
+let _update msg model: Model =
+    let objects = model.objects
+    match msg with
+    | Move -> { model with objects = objects |> Map.updateWith (moveObject >> Some) 1 }
+
+let update msg model: Model =
+    let upd = _update msg model
+    __modelHolder.model <- Some upd
+    upd
+
+let view model dispatch = div [] [ button [ OnClick(fun _ -> dispatch Move) ] [ str "<<<" ] ]
 
 
 open Elmish
