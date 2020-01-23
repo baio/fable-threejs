@@ -13,16 +13,20 @@
     <Compile Include="lib/Models/Diffs/CanvasDiff.fs" />
     <!--Models.Canvas-->
     <Compile Include="lib/Models/Canvas.fs" />
+    <!-- CanvasDiffer -->
+    <Compile Include="lib/CanvasDiffer.fs" />
     <!-- Threejs -->
     <Compile Include="lib/Three/Core.fs" />
     <Compile Include="lib/Three/Three.fs" />
     <Compile Include="lib/Three/ThreeJs.fs" />
-    <!--Canvas-->
-    <Compile Include="lib/Canvas/Canvas.fs" />
+    <!--Renderer-->    
+    <Compile Include="lib/Renderer/DiffRenderer.fs" />
+    <Compile Include="lib/Renderer/Renderer.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Core" Version="3.0.0" />
     <PackageReference Include="Fable.Browser.Dom" Version="1.0.0" />
+    <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
   </ItemGroup>
 </Project>

@@ -1,19 +1,24 @@
-module Canvas
+module Renderer
 
 open Fable.Core
 open Fable.Import
 open Three
 open ThreeJs
 open Three.__renderers_WebGLRenderer
+open CanvasDiffer
 
 let window = Browser.Dom.window
 
 let UP = Vector3.Create(0., 0., 1.)
 
+type CanvasGetter = unit -> Models.Canvas.Canvas option
+
 type Env =
     { renderer: WebGLRenderer
       scene: Scene
-      camera: Camera }
+      camera: Camera
+      canvasGetter: CanvasGetter
+      mutable canvas: Models.Canvas.Canvas option }
 
 let createCamera (width, height) =
 
@@ -40,8 +45,7 @@ let createCube() =
     let material = MeshBasicMaterial.Create(color = color)
     Mesh.Create(geometry, material)
 
-
-let init() =
+let init (canvasGetter: CanvasGetter) =
 
     let width = window.innerWidth
     let height = window.innerHeight
@@ -66,11 +70,16 @@ let init() =
 
     { renderer = renderer
       camera = camera
-      scene = scene }
+      scene = scene
+      canvasGetter = canvasGetter
+      canvas = None }
 
 let rec animate (env: Env) _ =
     window.requestAnimationFrame (animate env) |> ignore
-    // let cube = env.scene.children.[1]
-    // cube.rotation.x <- cube.rotation.x + 0.01
-    // cube.rotation.y <- cube.rotation.y + 0.01
+    //
+    let curCanvas = env.canvasGetter()
+    let pervCanvas = env.canvas
+    let diff = getDiff curCanvas pervCanvas
+    Renderer.DiffRenderer.renderDiff env.scene diff
+    //
     env.renderer.render (env.scene, env.camera)
