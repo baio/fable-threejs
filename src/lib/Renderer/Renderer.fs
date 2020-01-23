@@ -39,11 +39,6 @@ let createPlane (width, height) =
     let planeMaterial = MeshBasicMaterial.Create(color = Color.Create(0xcccccc), wireframe = true)
     Mesh.Create(planeGeometry, planeMaterial)
 
-let createCube() =
-    let geometry = BoxGeometry.Create(1., 1., 1.)
-    let color = Color.Create(0xff0000)
-    let material = MeshBasicMaterial.Create(color = color)
-    Mesh.Create(geometry, material)
 
 let init (canvasGetter: CanvasGetter) =
 
@@ -63,8 +58,8 @@ let init (canvasGetter: CanvasGetter) =
     let plane = createPlane (width, height)
     scene.add plane |> ignore
 
-    let cube = createCube()
-    scene.add cube |> ignore
+    // let cube = createCube()
+    // scene.add cube |> ignore
 
     window.document.body.appendChild (renderer.domElement) |> ignore
 
@@ -79,7 +74,8 @@ let rec animate (env: Env) _ =
     //
     let curCanvas = env.canvasGetter()
     let pervCanvas = env.canvas
-    let diff = getDiff curCanvas pervCanvas
+    let diff = getDiff pervCanvas curCanvas 
+    env.canvas <- curCanvas
     Renderer.DiffRenderer.renderDiff env.scene diff
     //
     env.renderer.render (env.scene, env.camera)

@@ -2040,7 +2040,7 @@ module __geometries_BoxGeometry =
         /// <param name="widthSegments">— Number of segmented faces along the width of the sides.</param>
         /// <param name="heightSegments">— Number of segmented faces along the height of the sides.</param>
         /// <param name="depthSegments">— Number of segmented faces along the depth of the sides.</param>
-        [<Emit "new $0($1...)">] abstract Create: ?width: float * ?height: float * ?depth: float * ?widthSegments: float * ?heightSegments: float * ?depthSegments: float -> BoxGeometry
+        [<Emit "new $0($1...)">] abstract Create: ?width: int * ?height: int * ?depth: int * ?widthSegments: float * ?heightSegments: float * ?depthSegments: float -> BoxGeometry
 
     type [<AllowNullLiteral>] BoxBufferGeometryParameters =
         abstract width: float with get, set

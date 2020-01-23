@@ -8,7 +8,10 @@ type Model = Canvas
 type Msg = None
 
 // TODO
-let mutable __model: Model option = Option.None
+type ModelHolder =
+    { mutable model: Model option }
+
+let mutable __modelHolder: ModelHolder = { model = Option.None }
 
 let init(): Model =
     let objects =
@@ -20,10 +23,13 @@ let init(): Model =
                        y = 0 }
                  size = 1 }) ]
         |> Map.ofList
-    { objects = objects }
+
+    let model = { objects = objects }
+    __modelHolder.model <- Some model
+    model
 
 let update msg model: Model =
-    __model <- Some model
+    __modelHolder.model <- Some model
     model
 
 let view model dispatch = div [] [ str "hello" ]
@@ -37,7 +43,7 @@ Program.mkSimple init update view
 |> Program.withConsoleTrace
 |> Program.run
 
-let canvasGetter() = __model
+let canvasGetter() = __modelHolder.model
 
 Renderer.init (canvasGetter)
 |> fun env -> Renderer.animate env 0.

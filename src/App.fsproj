@@ -3,23 +3,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <!--Models-->
-    <Compile Include="lib/Models/Core.fs" />
+    <Compile Include="lib/Models/Core.fs" />    
     <Compile Include="lib/Models/Geometry.fs" />
-    <!--Models.Objects-->
     <Compile Include="lib/Models/Objects.fs" />
-    <!--Models.Diffs-->
+    <Compile Include="lib/Models/Canvas.fs" />
     <Compile Include="lib/Models/Diffs/ObjectsDiffs.fs" />
     <Compile Include="lib/Models/Diffs/CanvasDiff.fs" />
-    <!--Models.Canvas-->
-    <Compile Include="lib/Models/Canvas.fs" />
-    <!-- CanvasDiffer -->
     <Compile Include="lib/CanvasDiffer.fs" />
-    <!-- Threejs -->
     <Compile Include="lib/Three/Core.fs" />
     <Compile Include="lib/Three/Three.fs" />
     <Compile Include="lib/Three/ThreeJs.fs" />
-    <!--Renderer-->    
     <Compile Include="lib/Renderer/DiffRenderer.fs" />
     <Compile Include="lib/Renderer/Renderer.fs" />
     <Compile Include="App.fs" />

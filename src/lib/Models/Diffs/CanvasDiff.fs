@@ -1,11 +1,12 @@
 module Models.Diffs.CanvasDiff
+
 open Models.Objects
 open Models.Diffs.ObjectsDiffs
 
-type Object = Cube of Cube
+type Object = Models.Canvas.Object
+
 type ObjectDiff = CubeDiff of CubeDiff
 
-type CanvasDiff = {
-    create: Object seq
-    update: ObjectDiff seq
-}
+type CanvasDiff =
+    { create: Object seq
+      update: ObjectDiff seq }
