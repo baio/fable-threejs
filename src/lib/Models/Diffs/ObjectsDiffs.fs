@@ -1,4 +1,4 @@
-module Models.Diffs.CubeDiff
+module Models.Diffs.ObjectsDiffs
 
 open Models.Core
 

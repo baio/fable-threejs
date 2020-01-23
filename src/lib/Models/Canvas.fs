@@ -1,7 +1,7 @@
 module Models.Canvas
 
 open Models.Core
-open Models.Objects.Cube
+open Models.Objects
 
 type Object = Cube
 
