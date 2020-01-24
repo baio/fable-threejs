@@ -4,7 +4,6 @@ open Models
 
 open Aether
 open Aether.Operators
-open Aether.Optics
 
 let moveObject = 
     Optic.map (Object.Cube_ >?> Cube.Position_ >?> Point.X_) (fun x -> x - 1)

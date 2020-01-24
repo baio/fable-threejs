@@ -4,15 +4,17 @@ namespace Models
 module Canvas =
     type Object =
         | Cube of Cube
+        static member Id_ = (function
+                            | Cube x -> x.Id), (fun (y: ObjId) (x: Object) -> x)
         static member Cube_ =
             (fun m ->
-                match m with
-                | Cube i -> Some i
-                | _ -> None),
+            match m with
+            | Cube i -> Some i
+            | _ -> None),
             (fun i m ->
-                match m with
-                | Cube _ -> Cube i
-                | m -> m)
+            match m with
+            | Cube _ -> Cube i
+            | m -> m)
 
     type Canvas =
         { Objects: Map<ObjId, Object> }

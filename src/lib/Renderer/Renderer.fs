@@ -74,8 +74,11 @@ let rec animate (env: Env) _ =
     //
     let curCanvas = env.canvasGetter()
     let pervCanvas = env.canvas
-    let diff = getDiff pervCanvas curCanvas 
-    env.canvas <- curCanvas
-    Renderer.DiffRenderer.renderDiff env.scene diff
+    match curCanvas with
+    | Some canvas ->
+        let diff = getDiff pervCanvas canvas    
+        Renderer.DiffRenderer.renderDiff env.scene diff
+    | None -> () // TODO cleanup canvas
     //
+    env.canvas <- curCanvas
     env.renderer.render (env.scene, env.camera)
