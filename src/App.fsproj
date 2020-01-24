@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="lib/Models/Core.fs" />    
+    <Compile Include="lib/Models/Core.fs" />
     <Compile Include="lib/Models/Geometry.fs" />
     <Compile Include="lib/Models/Objects.fs" />
     <Compile Include="lib/Models/Canvas.fs" />
@@ -15,6 +15,10 @@
     <Compile Include="lib/Three/ThreeJs.fs" />
     <Compile Include="lib/Renderer/DiffRenderer.fs" />
     <Compile Include="lib/Renderer/Renderer.fs" />
+    <Compile Include="Msg.fs" />
+    <Compile Include="Init.fs" />
+    <Compile Include="Update.fs" />
+    <Compile Include="View.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
