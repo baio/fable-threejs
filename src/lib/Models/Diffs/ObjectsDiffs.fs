@@ -1,9 +1,10 @@
-module Models.Diffs.ObjectsDiffs
+namespace Models.Diffs
 
-open Models.Core
-
-type CubeDiff =
-    { id: ObjId
-      x: int option
-      y: int option
-      size: int option }
+[<AutoOpen>]
+module ObjectsDiffs =
+    open Models
+    type CubeDiff =
+        { id: ObjId
+          x: int option
+          y: int option
+          size: int option }

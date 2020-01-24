@@ -1,3 +1,5 @@
-module Models.Core
+namespace Models
 
-type ObjId = int
+[<AutoOpen>]
+module Core = 
+    type ObjId = int
