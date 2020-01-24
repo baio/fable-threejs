@@ -9,5 +9,5 @@ module CanvasDiff =
     type ObjDiff = | ObjCubeDiff of CubeDiff
 
     type CanvasDiff =
-        { create: Object seq
-          update: ObjDiff seq }
+        { create: Object list
+          update: ObjDiff list }

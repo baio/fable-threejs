@@ -1,5 +1,6 @@
 module Renderer
 
+open Browser
 open Fable.Core
 open Fable.Import
 open Three
@@ -72,12 +73,13 @@ let init (canvasGetter: CanvasGetter) =
 let rec animate (env: Env) _ =
     window.requestAnimationFrame (animate env) |> ignore
     //
-    let curCanvas = env.canvasGetter()
     let pervCanvas = env.canvas
+    let curCanvas = env.canvasGetter()    
     match curCanvas with
     | Some canvas ->
-        let diff = getDiff pervCanvas canvas    
-        Renderer.DiffRenderer.renderDiff env.scene diff
+        let diff = getDiff(pervCanvas, canvas)        
+        if (diff.create |> Seq.isEmpty && diff.update |> Seq.isEmpty) |> not then
+            Renderer.DiffRenderer.renderDiff env.scene diff
     | None -> () // TODO cleanup canvas
     //
     env.canvas <- curCanvas

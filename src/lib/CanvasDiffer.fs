@@ -6,16 +6,16 @@ open Aether
 
 let getValues x =
     x
-    |> Map.toSeq
-    |> Seq.map snd
+    |> Map.toList
+    |> List.map snd
 
 let getId = Optic.get Object.Id_
 
 let getItem m id = m |> Optic.get (Map.key_ id)
 
-let compare<'a when 'a :> System.IComparable> (perv: 'a) (cur: 'a): Option<'a> =
-    if perv.CompareTo(cur) <> 0 then Some cur
-    else None
+let compare<'a when 'a: equality> (perv: 'a) (cur: 'a): Option<'a> =
+    if perv = cur then None
+    else Some cur
 
 let isAllNone = Seq.forall Option.isNone
 
@@ -38,7 +38,7 @@ let getObjDiff = function
     | (Cube x, Cube y) ->
         getCubeDiff x y |> Option.map ObjCubeDiff
 
-let calcUpdate (perv: Canvas) (cur: Canvas): ObjDiff seq =
+let calcUpdate (perv: Canvas) (cur: Canvas): ObjDiff list =
     let getPerv = getId >> getItem perv.Objects
 
     let getSame cur =
@@ -50,14 +50,14 @@ let calcUpdate (perv: Canvas) (cur: Canvas): ObjDiff seq =
 
     cur.Objects
     |> getValues
-    |> Seq.choose getSame
-    |> Seq.choose getObjDiff
+    |> List.choose getSame
+    |> List.choose getObjDiff
 
-let getDiff (perv: Canvas option) (cur: Canvas): CanvasDiff =
-    match perv, cur with
-    | Some _perv, _cur ->
+let getDiff =
+    function
+    | Some perv, cur ->
         { create = []
-          update = calcUpdate _perv _cur }
-    | None, _cur ->
-        { create = _cur.Objects |> getValues
+          update = calcUpdate perv cur }
+    | None, cur ->
+        { create = cur.Objects |> getValues
           update = [] }

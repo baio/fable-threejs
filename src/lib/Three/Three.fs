@@ -1834,7 +1834,7 @@ module __core_Object3D =
         abstract attach: ``object``: Object3D -> Object3D
         /// <summary>Searches through the object's children and returns the first with a matching id.</summary>
         /// <param name="id">Unique number of the object instance</param>
-        abstract getObjectById: id: float -> Object3D option
+        abstract getObjectById: id: int -> Object3D option
         /// <summary>Searches through the object's children and returns the first with a matching name.</summary>
         /// <param name="name">String to match to the children's Object3d.name property.</param>
         abstract getObjectByName: name: string -> Object3D option
@@ -5559,11 +5559,11 @@ module __math_Vector3 =
         /// Sets all values of this vector.
         abstract setScalar: scalar: float -> Vector3
         /// Sets x value of this vector.
-        abstract setX: x: float -> Vector3
+        abstract setX: x: int -> Vector3
         /// Sets y value of this vector.
-        abstract setY: y: float -> Vector3
+        abstract setY: y: int -> Vector3
         /// Sets z value of this vector.
-        abstract setZ: z: float -> Vector3
+        abstract setZ: z: int -> Vector3
         abstract setComponent: index: float * value: float -> Vector3
         abstract getComponent: index: float -> float
         /// Clones this vector.
