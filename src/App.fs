@@ -26,32 +26,34 @@ let updateWith f key map =
         | None -> map |> Map.remove key
     match Map.tryFind key map with
     | Some v -> inner v map
-    | None -> map    
+    | None -> map
+
+let updateWith2 f = updateWith (f >> Some)
 
 let init(): Model =
     let objects =
         [ 1,
           Cube
-              ({ id = 1
-                 position =
-                     { x = 0
-                       y = 0 }
-                 size = 1 }) ]
+              ({ Id = 1
+                 Position =
+                     { X = 0
+                       Y = 0 }
+                 Size = 1 }) ]
         |> Map.ofList
 
-    let model = { objects = objects }
+    let model = { Objects = objects }
     __modelHolder.model <- Some model
     model
 
 let moveObject = function
     | Cube cube ->
-        let position = { cube.position with x = cube.position.x - 1 }
-        Cube { cube with position = position }
+        let position = { cube.Position with X = cube.Position.X - 1 }
+        Cube { cube with Position = position }
 
 let _update msg model: Model =
-    let objects = model.objects
+    let objects = model.Objects
     match msg with
-    | Move -> { model with objects = objects |> updateWith (moveObject >> Some) 1 }
+    | Move -> { model with Objects = objects |> updateWith2 moveObject 1 }
 
 let update msg model: Model =
     let upd = _update msg model

@@ -12,7 +12,7 @@ open Browser.Dom
 
 
 let createCube (cube: Cube) =    
-    let geometry = BoxGeometry.Create(cube.size, cube.size, cube.size)
+    let geometry = BoxGeometry.Create(cube.Size, cube.Size, cube.Size)
     let color = Color.Create(0xff0000)
     let material = MeshBasicMaterial.Create(color = color)
     Mesh.Create(geometry, material)

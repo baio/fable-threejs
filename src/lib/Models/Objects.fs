@@ -4,6 +4,8 @@ open Models.Core
 open Models.Geometry
 
 type Cube =
-    { id: ObjId
-      position: Point
-      size: int }
+    { Id: ObjId
+      Position: Point
+      Size: int }
+    static member Position_ = (fun a -> a.Position), (fun b a -> { a with Position = b })
+    static member Size_ = (fun a -> a.Size), (fun b a -> { a with Size = b })

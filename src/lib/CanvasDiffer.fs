@@ -20,7 +20,7 @@ let getDiff (perv: Canvas option) (cur: Canvas option): CanvasDiff =
           update = calcUpdate p c }
     | None _, Some canvas ->
         { create =
-              canvas.objects
+              canvas.Objects
               |> Map.toSeq
               |> Seq.map (fun x -> snd x)
           update = [] }
